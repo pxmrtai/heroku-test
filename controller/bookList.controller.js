@@ -3,8 +3,7 @@ const shortid = require('shortid')
 
 module.exports.index = (req,res) => {
    res.render('index')
-  var user= db.get('user').find({email:req.body.email}).value()
-  console.log(user)
+  
 }
 module.exports.listBook = (req,res)=>{               
     var page = parseInt(req.query.page) || 1;
