@@ -35,7 +35,7 @@ console.log(process.env.SESSION_SECRET)
 
 db.defaults({ list: [] }).write();
 
-app.get("/",adminMiddleware.admin, authMiddleware.requireAuth, controller.index);
+app.get("/",authMiddleware.requireAuth, adminMiddleware.admin , controller.index);
 app.get("/book", authMiddleware.requireAuth, controller.listBook);
 app.get("/:id", authMiddleware.requireAuth, controller.view);
 app.get("/:id/delete", authMiddleware.requireAuth, controller.deleteBook);
@@ -43,8 +43,8 @@ app.get("/:id/delete", authMiddleware.requireAuth, controller.deleteBook);
 app.post("/", controller.postIndex);
 app.post("/update", controller.update);
 
-app.use("/users",adminMiddleware.admin, authMiddleware.requireAuth, userRoute);
-app.use("/transaction",adminMiddleware.admin, authMiddleware.requireAuth, transaction);
+app.use("/users", authMiddleware.requireAuth, adminMiddleware.admin, userRoute);
+app.use("/transaction", authMiddleware.requireAuth, adminMiddleware.admin, transaction);
 app.use("/auth", authRoute);
 app.use(express.static("public"));
 
