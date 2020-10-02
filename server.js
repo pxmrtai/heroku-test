@@ -23,6 +23,8 @@ var transaction = require("./routes/transaction.route");
 var counting = require("./middleware/count.middleware");
 var controller = require("./controller/bookList.controller");
 var authMiddleware = require("./middleware/auth.middleware");
+var adminMiddleware = require("./middleware/admin.middleware");
+
 
 app.set("view engine", "pug");
 app.set("views", "./views");
@@ -33,7 +35,7 @@ console.log(process.env.SESSION_SECRET)
 
 db.defaults({ list: [] }).write();
 
-app.get("/", authMiddleware.requireAuth, controller.index);
+app.get("/",adminMiddleware.admin, authMiddleware.requireAuth, controller.index);
 app.get("/book", authMiddleware.requireAuth, controller.listBook);
 app.get("/:id", authMiddleware.requireAuth, controller.view);
 app.get("/:id/delete", authMiddleware.requireAuth, controller.deleteBook);
@@ -41,8 +43,8 @@ app.get("/:id/delete", authMiddleware.requireAuth, controller.deleteBook);
 app.post("/", controller.postIndex);
 app.post("/update", controller.update);
 
-app.use("/users", authMiddleware.requireAuth, userRoute);
-app.use("/transaction", authMiddleware.requireAuth, transaction);
+app.use("/users",adminMiddleware.admin, authMiddleware.requireAuth, userRoute);
+app.use("/transaction",adminMiddleware.admin, authMiddleware.requireAuth, transaction);
 app.use("/auth", authRoute);
 app.use(express.static("public"));
 

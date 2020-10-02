@@ -125,10 +125,5 @@ console.log(wrongTime)
     secure: true
   }
             );
-  if(user.isAdmin){
-    res.redirect('/')
-
-  }
-   
   res.redirect('/users/customer')
 }
