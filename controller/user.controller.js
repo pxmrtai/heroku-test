@@ -9,6 +9,7 @@ const someOtherPlaintextPassword = "not_bacon";
 module.exports.customer = (req, res) => {
   var listBook = db.get("list").value();
   var rentalList = db.get("rentalList").value();
+  
   res.render("userOnly/customer", {
     list: db.get("list").value(),
     rentalList: rentalList

@@ -43,8 +43,8 @@ app.get("/:id/delete", authMiddleware.requireAuth, controller.deleteBook);
 app.post("/", controller.postIndex);
 app.post("/update", controller.update);
 
-app.use("/users", authMiddleware.requireAuth, adminMiddleware.admin, userRoute);
-app.use("/transaction", authMiddleware.requireAuth, adminMiddleware.admin, transaction);
+app.use("/users", authMiddleware.requireAuth, userRoute);
+app.use("/transaction", authMiddleware.requireAuth, transaction);
 app.use("/auth", authRoute);
 app.use(express.static("public"));
 
