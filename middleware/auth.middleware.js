@@ -7,6 +7,7 @@ module.exports.requireAuth = (req,res,next)=>{
     return
   }
   var user = db.get('user').find({id: req.signedCookies.userId}).value()
+  
   if(!user){
      res.redirect('/auth/login');
     return

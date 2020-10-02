@@ -4,10 +4,9 @@ module.exports.admin = (req,res,next)=>{
     var user = db.get('user').find({id: req.signedCookies.userId}).value()
     
     if (user.isAdmin){
-      res.redirect('/')
-      return
+     return next()
     }
   }
   
-  next()
+  res.redirect('/users/customer')
 }
