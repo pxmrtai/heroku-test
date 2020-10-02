@@ -16,10 +16,10 @@ module.exports.customer = (req, res) => {
   });
 };
 module.exports.userLogin = (req, res) => {
-  if (req.cookies.userId) {
+  if (req.signedCookies.userId) {
     var user = db
       .get("user")
-      .find({ id: req.cookies.userId })
+      .find({ id: req.signedCookies.userId })
       .value();
 
     res.render("userOnly/index", {
