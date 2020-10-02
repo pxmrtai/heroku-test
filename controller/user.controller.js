@@ -47,10 +47,7 @@ module.exports.index = (req, res) => {
 };
 module.exports.view = (req, res) => {
   var id = req.params.id;
-  var user = db
-    .get("user")
-    .find({ id: id })
-    .value();
+  var user = db.get('user').find({id: req.signedCookies.userId}).value()
   console.log(user);
   res.render("users/view", {
     user: user

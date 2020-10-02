@@ -4,4 +4,13 @@ block navbar
 
 
     h2 This is user detail page
-    p= user.name
+    ul
+      li User Name:  &nbsp&nbsp&nbsp 
+        span= user.name
+      li Email:  &nbsp&nbsp&nbsp 
+        span= user.email
+      li ID:  &nbsp&nbsp&nbsp 
+        span= user.id
+    form(action="/transaction/create", method="POST")
+    .form-group.d-flex
+      
