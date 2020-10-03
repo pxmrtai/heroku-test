@@ -1,5 +1,7 @@
 var epxress = require('express');
 var router = epxress.Router();
+var multer  = require('multer')
+var upload = multer({ dest: './public/uploads/' })
 const db = require('../db')
 const shortid = require('shortid')
 const bodyParser = require('body-parser')
@@ -23,7 +25,7 @@ router.get('/profile/avatar',controller.changeAvatar)
 router.get('/:id',controller.view)
 router.get("/index/:id/delete",controller.delete)
 
-router.post('/profile/avatar',controller.postChangeAvatar)
+router.post('/profile/avatar', upload.single('avatar'),controller.postChangeAvatar)
 
 
 module.exports = router;
