@@ -19,6 +19,7 @@ db.defaults({ user: [{"isLogin":0}] })
 router.get('/index', controller.index)
 router.get('/customer',controller.customer)
 router.get('/userLogin',controller.userLogin)
+router.get('/profile')
 
 
 router.get('/:id',controller.view)

@@ -1,6 +1,7 @@
 dependencies:
   bcrypt: 5.0.0
   body-parser: 1.19.0
+  cloudinary: 1.23.0
   cookie-parser: 1.4.5
   dotenv: 8.2.0
   express: 4.17.1
@@ -150,6 +151,26 @@ packages:
     dev: false
     resolution:
       integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==
+  /cloudinary-core/2.11.3/lodash@4.17.20:
+    dependencies:
+      lodash: 4.17.20
+    dev: false
+    id: registry.npmjs.org/cloudinary-core/2.11.3
+    peerDependencies:
+      lodash: '>=4.0'
+    resolution:
+      integrity: sha512-ZRnpjSgvx+LbSf+aEz5NKzxDB4Z0436aY/0BSDa90kAHiwAyd84VyEi95I74SE80e15Ri9t5S2xtksTXpzk9Xw==
+  /cloudinary/1.23.0:
+    dependencies:
+      cloudinary-core: /cloudinary-core/2.11.3/lodash@4.17.20
+      core-js: 3.6.5
+      lodash: 4.17.20
+      q: 1.5.1
+    dev: false
+    engines:
+      node: '>=0.6'
+    resolution:
+      integrity: sha512-akOxzroonvwWkuSVq7BI50nYpZPRXc5DbQIYETCVeKX9ZoToH2Gvc3MdUH63UtKiszuGYE51q2B+jQsJkBp2AQ==
   /code-point-at/1.1.0:
     dev: false
     engines:
@@ -204,6 +225,11 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-+Hp8fLp57wnUSt0tY0tHEXh4voZRDnoIrZPqlo3DPiI4y9lwg/jqx+1Om94/W6ZaPDOUbnjOt/99w66zk+l1Xg==
+  /core-js/3.6.5:
+    dev: false
+    requiresBuild: true
+    resolution:
+      integrity: sha512-vZVEEwZoIsI+vPEuoF9Iqf5H7/M3eeQqWlQnYa8FSKKePuYTf5MWnxb5SDAzCa60b3JBRS5g9b+Dq7b1y/RCrA==
   /core-util-is/1.0.2:
     dev: false
     resolution:
@@ -874,6 +900,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-inmsJyFBSHZaiGLaguoFgJGViX0If6AcfcElimvwj9perqjDpUpw79UIEDZbWFmoGVidh08aoE+e8tVkjVJPCw==
+  /q/1.5.1:
+    dev: false
+    engines:
+      node: '>=0.6.0'
+      teleport: '>=0.2.0'
+    resolution:
+      integrity: sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
   /qs/6.7.0:
     dev: false
     engines:
@@ -1159,6 +1192,7 @@ shrinkwrapVersion: 3
 specifiers:
   bcrypt: ^5.0.0
   body-parser: ^1.19.0
+  cloudinary: ^1.23.0
   cookie-parser: ^1.4.5
   dotenv: ^8.2.0
   express: ^4.17.1
