@@ -22,6 +22,8 @@ module.exports.login = (req,res)=>{
 module.exports.postResign = async (req,res)=>{
   var password = req.body.password;
   var email= req.body.email
+  req.body.avatar = req.file.path.split("\\").slice(1).join("\\");
+
    req.body.id = shortid.generate();
 
   var hashPassword = await bcrypt.hash(password, saltRounds);
@@ -31,7 +33,6 @@ module.exports.postResign = async (req,res)=>{
   var b=db.get('user').find({email:email})
 .push({isLogin: 1})
 .write()
-  console.log(b)
   res.render('auth/login',{
     sucess:[
       'sign up sucessful'
@@ -66,8 +67,6 @@ module.exports.postLogin = async (req,res)=>{
       .set("isLogin", 0)
       .write();
     console.log('check'+check)}
-    
-    console.log(user)
 var wrongTime=  db.get('user')
 .find({email:email})
 .assign({isLogin: user.isLogin+1})

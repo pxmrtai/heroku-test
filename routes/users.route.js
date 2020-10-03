@@ -25,7 +25,7 @@ router.get('/profile/avatar',controller.changeAvatar)
 router.get('/:id',controller.view)
 router.get("/index/:id/delete",controller.delete)
 
-router.post('/profile/avatar', upload.single('avatar'),controller.postChangeAvatar)
+router.post('/profile/avatar',controller.postChangeAvatar)
 
 
 module.exports = router;

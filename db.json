@@ -94,56 +94,6 @@
       "isLogin": 1
     },
     {
-      "name": "11",
-      "email": "111@gmail.com",
-      "password": "$2b$10$KUzW4osygFS8HD5JIPGJLOwjaLQG1IhGBPZAxG1EQGFULDtmdmK9i",
-      "id": "iBw41aeoE"
-    },
-    {
-      "name": "22",
-      "email": "22@gmail.com",
-      "password": "$2b$10$6ptU4D.ku59mOwbCJ3zoZ.KEOnS7GICyLnqUsI3x0sqvQpxy.rJFe",
-      "id": "-t1B0P5p3",
-      "isLogin": 1
-    },
-    {
-      "name": "33",
-      "email": "33@gmail.com",
-      "password": "$2b$10$pAr9C3y1J7MiusxkVzMNHOoh45tP1jOB/kMWxrypOsuLxPTHOP6Tm",
-      "id": "Q0inHDDDq"
-    },
-    {
-      "name": "44",
-      "email": "44@gmail.com",
-      "password": "$2b$10$cZTOi1eNr.xWGZ9.Wo9igOzWUFs6nEXIoGU8n1gfBSmZqTAVkTrIG",
-      "id": "Iv8wbuqDO",
-      "isLogin": 1
-    },
-    {
-      "name": "55",
-      "email": "55@gmail.com",
-      "password": "$2b$10$UqitoacQo2DWGzQtnxcDa.XeImKBKWtS6o6yBS9NB4cCmwpbw6Wqq",
-      "id": "nMOYdOBuq"
-    },
-    {
-      "name": "77",
-      "email": "77@gmail.com",
-      "password": "$2b$10$FBt6mzZQFFJJ2J4ikiIF6Ow4oV5.5Goz3qK9KOyLdCCDL6sGV9QsC",
-      "id": "psO9ihq5G"
-    },
-    {
-      "email": "77@gmail.com",
-      "password": "$2b$10$E2pebAnSaEZxdijDnDDeD.QAJARRAftctsmOPBYk5/yzx/ecjcedq",
-      "id": "ryMMgE-11"
-    },
-    {
-      "name": "88",
-      "email": "88@gmail.com",
-      "password": "$2b$10$wnE4cGp4EYXiKX.zQI5hFuwI83jmyEAY7v5Tx5J/oZVYqAXZUzBsC",
-      "id": "UUgj5Iihi",
-      "isLogin": 0
-    },
-    {
       "name": "tai",
       "email": "pxmrtai123@gmail.com",
       "password": "$2b$10$.Xo48AJelqJTB/bSNkwRsOOEd/t8cahaVA7kGkbxW.GWvtuF8Z6Ne",
@@ -162,6 +112,24 @@
       "password": "$2b$10$JuVVIHuf768xDCU/.ZK7yeJft0WxqmGHRdjVGzHB8kXNLbJezNTTe",
       "avatar": "a.png",
       "id": "og69psGTn"
+    },
+    {
+      "name": "pxmrtai",
+      "email": "222@gmail.com",
+      "password": "$2b$10$v06/lYXIquIBEsERf2s8IevTD6C0tDo7d4wUmgYw/Z/b6P/9bVeH.",
+      "id": "0yWPdW-zk"
+    },
+    {
+      "name": "11",
+      "email": "11@gmail.com",
+      "password": "$2b$10$Vn0SEcDsVmMZtmGxkeIOMemi2XH8l/l4TBect9lcWSq6beHTnjnHG",
+      "id": "-8g1hUtr6"
+    },
+    {
+      "name": "33",
+      "email": "33@gmail.com",
+      "password": "$2b$10$jiKFHKVoHWC2p6LH614tgeMo/olvXeZNfWl33LbDYVd5hdkGsVXHC",
+      "id": "k50nWYC5f"
     }
   ],
   "rentalList": [
