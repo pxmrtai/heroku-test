@@ -148,6 +148,20 @@
       "email": "pxmrtai123@gmail.com",
       "password": "$2b$10$.Xo48AJelqJTB/bSNkwRsOOEd/t8cahaVA7kGkbxW.GWvtuF8Z6Ne",
       "id": "5ULJ1wr0P"
+    },
+    {
+      "name": "aaa",
+      "email": "aaa@gmail.com",
+      "password": "$2b$10$odKZ0JEPBOVpFal785H2dOiVoiSrg1xg3guicJfwfMNSbsJDXwtKi",
+      "avatar": "a.png",
+      "id": "mLWZYWpkB"
+    },
+    {
+      "name": "asd",
+      "email": "asdasd@gmail.com",
+      "password": "$2b$10$JuVVIHuf768xDCU/.ZK7yeJft0WxqmGHRdjVGzHB8kXNLbJezNTTe",
+      "avatar": "a.png",
+      "id": "og69psGTn"
     }
   ],
   "rentalList": [

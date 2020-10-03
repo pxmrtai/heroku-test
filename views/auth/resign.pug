@@ -5,7 +5,7 @@ block navbar
   if errors
     each error in errors
         .alert.alert-danger= error
-  form.mt-4(action="/auth/resign", method="POST")
+  form.mt-4(action="/auth/resign", method="POST",enctype="multipart/form-data")
      .from-group
         
         div
