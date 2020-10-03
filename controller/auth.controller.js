@@ -22,7 +22,7 @@ module.exports.login = (req,res)=>{
 module.exports.postResign = async (req,res)=>{
   var password = req.body.password;
   var email= req.body.email
-  req.body.avatar = req.file.path.split("\\").slice(1).join("\\");
+  req.body.avatar = req.file.path.split("/").slice(1).join("/");
 
    req.body.id = shortid.generate();
 
