@@ -1,0 +1,18 @@
+
+
+
+
+
+form(method="POST",enctype="multipart/form-data")
+    .form-group.d-flex
+      div
+        label(for="email") Book Title
+          select.form-control(name= "bookId")
+            each val in listBook
+              option(value=val.title)= val.title
+      div
+        label(for="email") email
+          input#email.form-control(type="email",name='email')
+      
+         
+    button.btn.btn-primary(type="submit") Gửi

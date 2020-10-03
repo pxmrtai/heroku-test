@@ -64,3 +64,6 @@ module.exports.delete = function(req, res) {
 module.exports.createUser = (req, res) => {
   res.render("users/create", {});
 };
+module.exports.changeAvatar = (req, res) => {
+  res.render("users/profile/avatar", {});
+};
