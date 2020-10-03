@@ -67,59 +67,15 @@ module.exports.createUser = (req, res) => {
   res.render("users/create", {});
 };
 module.exports.changeAvatar = (req, res) => {
-  res.render("users/profile/avatar", {});
+  res.render("users/profile/avatar");
 };
 module.exports.postChangeAvatar = (req, res) => {
-  cloudinary.config({
-    cloud_name: 'dvjjx3g49',
-    api_key: '795484751145565',
-    api_secret: 'NtzjR0Rhy6Fzj7_wkExbwKKuaR0'
-});
-
-var self = module.exports = {
-    uploadSingle: (file) => {
-        return new Promise(resolve => {
-            cloudinary.uploader.upload(file, {
-                    folder: 'single'
-                })
-                .then(result => {
-                    if (result) {
-                        const fs = require('fs')
-                        fs.unlinkSync(file)
-                        resolve({
-                            url: result.secure_url
-                        })
-                    }
-                })
-        })
-    },
-    uploadMultiple: (file) => {
-        return new Promise(resolve => {
-            cloudinary.uploader.upload(file, {
-                    folder: 'home'
-                })
-                .then(result => {
-                    if (result) {
-                        const fs = require('fs')
-                        fs.unlinkSync(file)
-                        resolve({
-                            url: result.secure_url,
-                            id: result.public_id,
-                            thumb1: self.reSizeImage(result.public_id, 200, 200),
-                            main: self.reSizeImage(result.public_id, 500, 500),
-                            thumb2: self.reSizeImage(result.public_id, 300, 300)
-                        })
-                    }
-                })
-        })
-    },
-    reSizeImage: (id, h, w) => {
-        return cloudinary.url(id, {
-            height: h,
-            width: w,
-            crop: 'scale',
-            format: 'jpg'
-        })
-    },
-}
+  var user = db
+      .get("user")
+      .find({ id: req.signedCookies.userId })
+      .value();
+  db.get('posts')
+  .find({ id: 'low!' })
+  .assign({ title: 'hi!'})
+  .write()
 };
