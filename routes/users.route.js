@@ -20,13 +20,10 @@ router.get('/index', controller.index)
 router.get('/customer',controller.customer)
 router.get('/userLogin',controller.userLogin)
 router.get('/profile/avatar',controller.changeAvatar)
-
-
 router.get('/:id',controller.view)
-
-
 router.get("/index/:id/delete",controller.delete)
 
+router.post('/profile/avatar',controller.postChangeAvatar)
 
 
 module.exports = router;

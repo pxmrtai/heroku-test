@@ -67,3 +67,6 @@ module.exports.createUser = (req, res) => {
 module.exports.changeAvatar = (req, res) => {
   res.render("users/profile/avatar", {});
 };
+module.exports.postChangeAvatar = (req, res) => {
+  
+};
