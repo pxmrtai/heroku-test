@@ -75,7 +75,9 @@ module.exports.postChangeAvatar = (req, res) => {
       .find({ id: req.signedCookies.userId })
       .value();
   db.get('posts')
-  .find({ id: 'low!' })
-  .assign({ title: 'hi!'})
+  .find({ id: user.id })
+  .assign({ avatar: req.body.avatar})
   .write()
+  console.log(req.body.avatar)
+  res.redirect('/users/profile')
 };

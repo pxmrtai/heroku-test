@@ -7,7 +7,7 @@ dependencies:
   express: 4.17.1
   lowdb: 1.0.0
   md5: 2.3.0
-  nodemailer: 6.4.11
+  nodemailer: 6.4.13
   pug: 3.0.0
   shortid: 2.2.15
 packages:
@@ -677,13 +677,13 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-7QcZa8/fpaU/BKenjcaeFF9hLz2+7S9AqyXFhlH/rilsQ/hPZKK32RtR5EQHJElgu+q5RfbJ34KriI79UWaorA==
-  /nodemailer/6.4.11:
+  /nodemailer/6.4.13:
     dev: false
     engines:
       node: '>=6.0.0'
     requiresBuild: true
     resolution:
-      integrity: sha512-BVZBDi+aJV4O38rxsUh164Dk1NCqgh6Cm0rQSb9SK/DHGll/DrCMnycVDD7msJgZCnmVa8ASo8EZzR7jsgTukQ==
+      integrity: sha512-XmtiiKza2Cqtr+ZRMchMZn9s2nmwQDeakbf+yL0ODsIXOv58UZgk/MKPOkDKqY+mvxHs87PrJK7Nf/tcpKHqYQ==
   /nopt/4.0.3:
     dependencies:
       abbrev: 1.1.1
@@ -1198,6 +1198,6 @@ specifiers:
   express: ^4.17.1
   lowdb: ^1.0.0
   md5: ^2.3.0
-  nodemailer: ^6.4.11
+  nodemailer: ^6.4.13
   pug: ^3.0.0
   shortid: ^2.2.15
