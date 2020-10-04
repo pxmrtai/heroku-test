@@ -34,7 +34,6 @@ module.exports.createRentalList =(req,res)=>{
 
 module.exports.postCreateRentalList = (req,res)=>{
     var user = db.get('user').value()
-    console.log('this is' + req.user)
     req.body.id = shortid.generate();
     db.get('rentalList').push(req.body).write()
     res.redirect('/transaction/index')
