@@ -49,7 +49,7 @@ module.exports.index = (req, res) => {
 };
 module.exports.view = (req, res) => {
   var id = req.params.id;
-  var user = db.get('user').find({id: req.signedCookies.userId}).value()
+  var user = db.get('user').find({id: id}).value()
   console.log(user);
   res.render("users/view", {
     user: user
@@ -70,13 +70,12 @@ module.exports.changeAvatar = (req, res) => {
   res.render("users/profile/avatar");
 };
 module.exports.postChangeAvatar = (req, res) => {
+  var id = req.params.id;
   var user = db
       .get("user")
-      .find({ id: req.signedCookies.userId })
+      .find({ id: id })
       .value();
-  if(!user.avatar){
-   
-  }
+  req.body.avatar = req.file.path.split("/").slice(1).join("/");
   db.get('user')
   .find({ id: req.signedCookies.userId })
   .assign({ avatar: req.file.path})
