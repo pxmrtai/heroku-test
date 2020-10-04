@@ -1,5 +1,6 @@
 require("dotenv").config();
 const md5 = require('md5')
+const cloudinary = require('cloudinary').v2
 const db = require('../db')
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -10,8 +11,9 @@ var nodemailer = require('nodemailer');
 
 
 module.exports.resign=(req,res)=>{
+
   res.render('auth/resign')
- 
+  
 }
 
 module.exports.login = (req,res)=>{
@@ -38,6 +40,11 @@ module.exports.postResign = async (req,res)=>{
       'sign up sucessful'
     ]
   })
+      cloudinary.config({
+    cloud_name: "dunksyqjj",
+    api_key: "173989938887513",
+    api_secret: "ZPLqvCzRu55MaM1rt-wxJCmkxqU"
+  });
 }
 
 module.exports.postLogin = async (req,res)=>{
