@@ -13,7 +13,10 @@ block navbar
     each user in userList
       tr
         td
-          img(src=user.avatar)
+          if user.avatar
+            img(src='/' + user.avatar)
+          else 
+            img(src='https://cdn.glitch.com/77a339e2-d309-4888-9ac3-0ba94f1022ea%2Fdepositphotos_166074422-stock-illustration-default-avatar-profile-icon-grey.jpg?v=1601794635784', )
         td= user.name
         td= user.id
         td= user.password
