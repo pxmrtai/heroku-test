@@ -23,9 +23,9 @@ router.get('/customer',controller.customer)
 router.get('/userLogin',controller.userLogin)
 router.get('/profile/avatar/:id',controller.changeAvatar)
 router.get('/:id',controller.view)
-router.get("/index/:id/delete:",controller.delete)
+router.get("/index/:id/delete",controller.delete)
 
-router.post('/profile/avatar',upload.single('avatar'),controller.postChangeAvatar)
+router.post('/profile/avatar/:id',upload.single('avatar'),controller.postChangeAvatar)
 
 
 module.exports = router;
