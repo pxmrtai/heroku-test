@@ -62,8 +62,7 @@ module.exports.postResign = async (req,res)=>{
       });
     });
   }
-  db.get('user').push({avatar:'https://cdn.glitch.com/77a339e2-d309-4888-9ac3-0ba94f1022ea%2Fdepositphotos_166074422-stock-illustration-default-avatar-profile-icon-grey.jpg?v=1601794635784'}).write()  
-}
+  }
 
 module.exports.postLogin = async (req,res)=>{
 var email = req.body.email

@@ -81,7 +81,7 @@ module.exports.postChangeAvatar = (req, res) => {
       .value();
   req.body.avatar = req.file.path.split("/").slice(1).join("/");
   db.get('user')
-  .find({ id: req.signedCookies.userId })
+  .find({ id: req.params.id })
   .assign({ avatar: req.file.path})
   .write()
   res.redirect('/users/'+ id)

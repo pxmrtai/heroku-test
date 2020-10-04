@@ -47,7 +47,7 @@
       "email": "coderx@gmail.com",
       "password": "$2b$10$53FZ4cK87B2v15iljpOYFeTe81NbDwU2lBkpoS0QOwGyz53BPql76",
       "id": "-Pitf1TC3",
-      "avatar": "uploads/4117d41cc645dce4949822e72d70bfa1",
+      "avatar": "public/uploads/c4f5cadd864e49dc1b44c0842386da17",
       "isAdmin": true,
       "isLogin": 1
     },
@@ -65,7 +65,7 @@
       "id": "1QCQCLBk-",
       "isAdmin": true,
       "isLogin": 0,
-      "avatar": "public/uploads/6489dc8e3a7223a7976c9836c9ac0124"
+      "avatar": "public/uploads/f445d194f2772abc524e14601c9bd204"
     },
     {
       "name": "akari sakata",
@@ -141,6 +141,18 @@
       "password": "$2b$10$JVelXlnvd6k.iK3zg.PQAeEs0fdSuOP7BIxwkU59etFAwyzEYwI/K",
       "avatar": "uploads/bf7f372aa60fcc4e4b04a4c770b05acd",
       "id": "HLiUAjoVx"
+    },
+    {
+      "name": "444",
+      "email": "444@gmail.com",
+      "password": "$2b$10$0WildgoGHnmv6U1Je.PHKuYmVtEakQO3f.8hdxd6cV22OT3Dv6Ofq",
+      "id": "FP31X7dBf"
+    },
+    {
+      "name": "555",
+      "email": "555@gmail.com",
+      "password": "$2b$10$rEhA1mizGX94gCWfdp..m.JdfbDVg/a7wb5ek0QEyDwPMQZH.yJtG",
+      "id": "NxtGL6skj"
     }
   ],
   "rentalList": [
