@@ -47,7 +47,7 @@
       "email": "coderx@gmail.com",
       "password": "$2b$10$53FZ4cK87B2v15iljpOYFeTe81NbDwU2lBkpoS0QOwGyz53BPql76",
       "id": "-Pitf1TC3",
-      "avatar": "public/uploads/543eee40719bd77ef5251a866f88a68b",
+      "avatar": "uploads/c877dbae5730a807c4379268db69bee7",
       "isAdmin": true,
       "isLogin": 1
     },
@@ -86,7 +86,8 @@
       "email": "koko2@gmail.com",
       "password": "$2b$10$Wx4F9X4.RYvYz7dJ8i7ZWum3JF/so0P9qjTkLVKMRZVCvzAkO.JzS",
       "id": "v-oGE0X66",
-      "isLogin": 2
+      "isLogin": 2,
+      "avatar": "uploads/a278cc2ceb57326b4e7ce271cd49f7e7"
     },
     {
       "name": "koko",

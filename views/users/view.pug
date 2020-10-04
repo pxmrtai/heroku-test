@@ -11,7 +11,7 @@ block navbar
         span= user.email
       li ID:  &nbsp&nbsp&nbsp 
         span= user.id
-      li(list-style='none')
+      li
         if user.avatar
             img(src='/' + user.avatar, width='100px')
         else 

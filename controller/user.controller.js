@@ -82,7 +82,11 @@ module.exports.postChangeAvatar = (req, res) => {
   req.body.avatar = req.file.path.split("/").slice(1).join("/");
   db.get('user')
   .find({ id: req.params.id })
-  .assign({ avatar: req.file.path})
+  .assign({ avatar: req.body.avatar})
   .write()
+  var admin = db.get('user').find({})
+  if(!user.isAdmin){
+    return res.redirect('/users/userLogin')
+  }
   res.redirect('/users/'+ id)
 };
