@@ -44,12 +44,8 @@ module.exports.postResign = async (req,res)=>{
       'sign up sucessful'
     ]
   })
-const data = {
-      avatar: req.body.avatar,
-    }
-
     // upload image here
-    cloudinary.uploader.upload(data.avatar)
+    cloudinary.uploader.upload(req.file.path)
     .then((result) => {
       res.status(200).send({
         message: "success",
