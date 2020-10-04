@@ -6,13 +6,8 @@ html
         
         
     body
-        if user
-          p= user.name
-        if user.avatar
-            img(src='/' + user.avatar, width='100px')
-        else 
-            img(src='https://cdn.glitch.com/77a339e2-d309-4888-9ac3-0ba94f1022ea%2Fdepositphotos_166074422-stock-illustration-default-avatar-profile-icon-grey.jpg?v=1601794635784', width='100px')
-        form(method="POST",enctype="multipart/form-data")
+        
+        form(action="users/profile/avatar",method="POST",enctype="multipart/form-data")
           .form-group
             div
               label(for="avatar") avatar

@@ -47,6 +47,7 @@
       "email": "coderx@gmail.com",
       "password": "$2b$10$53FZ4cK87B2v15iljpOYFeTe81NbDwU2lBkpoS0QOwGyz53BPql76",
       "id": "-Pitf1TC3",
+      "avatar": "uploads/4117d41cc645dce4949822e72d70bfa1",
       "isAdmin": true,
       "isLogin": 1
     },
@@ -64,7 +65,7 @@
       "id": "1QCQCLBk-",
       "isAdmin": true,
       "isLogin": 0,
-      "avatar": "public/uploads/20d18fed6dce297c4fc1cac222d77ba4"
+      "avatar": "uploads/df1b8127fb6081cefd6f5214f97593b6"
     },
     {
       "name": "akari sakata",
