@@ -67,10 +67,10 @@ module.exports.createUser = (req, res) => {
   res.render("users/create", {});
 };
 module.exports.changeAvatar = (req, res) => {
-  var id = req.body.id
+  var id = req.params.id;
   console.log(id)
   res.render("users/profile/avatar",{
-    user: db.get('user').find({id: req.body.id}).value()
+    user: db.get('user').find({id: id}).value()
   });
 };
 module.exports.postChangeAvatar = (req, res) => {
