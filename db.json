@@ -134,6 +134,31 @@
       "password": "$2b$10$pgMoRg8NUxt5AuIimD4DruOOh2CQUKl/ajzUKHyUoRNSPe/VDH0ua",
       "avatar": "uploads/b68409e5c9934f2b68a4c34c2a8248c4",
       "id": "b31TjjLpG"
+    },
+    {
+      "name": "Bùi Tuấn Tài",
+      "email": "pxmrtai97@gmail.com7",
+      "password": "$2b$10$JVelXlnvd6k.iK3zg.PQAeEs0fdSuOP7BIxwkU59etFAwyzEYwI/K",
+      "avatar": "uploads/bf7f372aa60fcc4e4b04a4c770b05acd",
+      "id": "HLiUAjoVx"
+    },
+    {
+      "name": "333",
+      "email": "333@gmail.com",
+      "password": "$2b$10$0HKWFZXlGwFRmXlxuFHbQ.Gem8suHbqnMhbwZNLeCwFr3/.purhd6",
+      "id": "OTqd7lTFJ"
+    },
+    {
+      "name": "444",
+      "email": "444@gmail.com",
+      "password": "$2b$10$Ouui.fKMfjL0GVNtKIBtVe3IpHGEDr/l.yQLd9/UxVZ6x5UufMbeO",
+      "id": "JaiEIUZKA"
+    },
+    {
+      "name": "555",
+      "email": "555@gmail.com",
+      "password": "$2b$10$XebHUmpfYzBffqXDvP9r2.ESJjM/VEAEdfgr8V2gDTWceJLnhirSa",
+      "id": "6cAOVME-x"
     }
   ],
   "rentalList": [

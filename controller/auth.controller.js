@@ -28,7 +28,7 @@ module.exports.login = (req,res)=>{
 module.exports.postResign = async (req,res)=>{
   var password = req.body.password;
   var email= req.body.email
-  if(req.file.path){ req.body.avatar = req.file.path.split("/").slice(1).join("/");}
+  if(req.body.avatar){ req.body.avatar = req.file.path.split("/").slice(1).join("/");}
  
 
    req.body.id = shortid.generate();
@@ -43,7 +43,8 @@ module.exports.postResign = async (req,res)=>{
   res.render('auth/login',{
     sucess:[
       'sign up sucessful'
-    ]
+    ],
+    values: req.body
   })
     // upload image here
     cloudinary.uploader.upload(req.file.path)
