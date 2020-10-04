@@ -7,7 +7,11 @@ const saltRounds = 10;
 const shortid = require('shortid')
 var nodemailer = require('nodemailer');
 
-
+cloudinary.config({
+    cloud_name: "dvjjx3g49",
+    api_key: "795484751145565",
+    api_secret: "NtzjR0Rhy6Fzj7_wkExbwKKuaR0"
+  });
 
 
 module.exports.resign=(req,res)=>{
@@ -40,11 +44,23 @@ module.exports.postResign = async (req,res)=>{
       'sign up sucessful'
     ]
   })
-      cloudinary.config({
-    cloud_name: "dunksyqjj",
-    api_key: "173989938887513",
-    api_secret: "ZPLqvCzRu55MaM1rt-wxJCmkxqU"
-  });
+const data = {
+      avatar: req.body.avatar,
+    }
+
+    // upload image here
+    cloudinary.uploader.upload(data.avatar)
+    .then((result) => {
+      res.status(200).send({
+        message: "success",
+        result,
+      });
+    }).catch((error) => {
+      res.status(500).send({
+        message: "failure",
+        error,
+      });
+    });
 }
 
 module.exports.postLogin = async (req,res)=>{
