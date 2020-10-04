@@ -8,6 +8,14 @@ const saltRounds = 10;
 const myPlaintextPassword = "s0//P4$$w0rD";
 const someOtherPlaintextPassword = "not_bacon";
 
+
+cloudinary.config({
+    cloud_name: "dvjjx3g49",
+    api_key: "795484751145565",
+    api_secret: "NtzjR0Rhy6Fzj7_wkExbwKKuaR0"
+  });
+
+
 module.exports.customer = (req, res) => {
   var listBook = db.get("list").value();
   var rentalList = db.get("rentalList").value();
@@ -84,9 +92,22 @@ module.exports.postChangeAvatar = (req, res) => {
   .find({ id: req.params.id })
   .assign({ avatar: req.body.avatar})
   .write()
-  var admin = db.get('user').find({})
-  if(!user.isAdmin){
+  var admin = db.get('user').find({id:req.signedCookies.userId}).value()
+  if(!admin.isAdmin){
     return res.redirect('/users/userLogin')
   }
-  res.redirect('/users/'+ id)
+  if(req.body.avatar){
+   cloudinary.uploader.upload(req.file.path)
+    .then((result) => {
+      res.status(200).send({
+        result,
+      });
+    }).catch((error) => {
+      res.status(500).send({
+        error,
+      });
+    });
+  }
+    res.redirect('/users/'+ id)
+
 };

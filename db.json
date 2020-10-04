@@ -56,7 +56,8 @@
       "email": "akaribakabaka@gmail.com",
       "password": "$2b$10$vwp9G5Ncm6XT42LeFQ3KZebBc3czpXHN97/7ggZQV09jWdD97HHri",
       "id": "8c2p42bxC",
-      "isLogin": 2
+      "isLogin": 2,
+      "avatar": "uploads/f2499b5eba8dd76fdda4e5e363a9d5bc"
     },
     {
       "name": "tuan tai",
@@ -72,7 +73,8 @@
       "email": "1231243545@gmail.com",
       "password": "$2b$10$gsdpj9flgb4rOf3tVej41ONDE4sFZDNd7yIcHPbZFuPbR88PuvUna",
       "id": "mZomA73_K",
-      "isLogin": 0
+      "isLogin": 0,
+      "avatar": "uploads/a82881034b556b11894228d675882628"
     },
     {
       "name": "a",
@@ -87,7 +89,7 @@
       "password": "$2b$10$Wx4F9X4.RYvYz7dJ8i7ZWum3JF/so0P9qjTkLVKMRZVCvzAkO.JzS",
       "id": "v-oGE0X66",
       "isLogin": 2,
-      "avatar": "uploads/a278cc2ceb57326b4e7ce271cd49f7e7"
+      "avatar": "uploads/ca55ed73213f03d8a5d322bb1f789629"
     },
     {
       "name": "koko",
