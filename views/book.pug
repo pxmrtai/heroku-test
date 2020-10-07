@@ -5,7 +5,7 @@ block navbar
   h1 Book List
   if logined
     .container.d-flex
-      form(action="/" method="POST")
+      form(action="/" method="POST",enctype="multipart/form-data")
         .form-group
             div
               h2 Create Book

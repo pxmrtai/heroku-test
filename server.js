@@ -1,7 +1,8 @@
 require("dotenv").config();
 console.log(process.env.SESSION_SECRET);
 const express = require("express");
-
+var multer  = require('multer')
+var upload = multer({ dest: './public/uploads/' })
 const app = express();
 const port = 5000;
 var cookieParser = require("cookie-parser");
@@ -40,7 +41,7 @@ app.get("/book", controller.listBook);
 app.get("/:id",controller.view);
 app.get("/:id/delete", controller.deleteBook);
 
-app.post("/", controller.postIndex);
+app.post("/",upload.single('avatar'), controller.postIndex);
 app.post("/update", controller.update);
 
 app.use("/users", authMiddleware.requireAuth, userRoute);
