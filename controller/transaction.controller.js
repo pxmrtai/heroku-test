@@ -7,7 +7,7 @@ const shortid = require('shortid')
 
 module.exports.rentalIndex = (req,res)=>{
   var page = parseInt(req.query.page) || 1;
-  var perPage = 2;
+  var perPage = 5;
   var start = (page - 1) * perPage;
   var end = (page - 1) * perPage + perPage;
   var maxPage =  Math.ceil(db.get("rentalList").value().length / perPage);

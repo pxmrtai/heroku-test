@@ -37,21 +37,22 @@ block navbar
   table.table
     tr
       th Title
-      th ID
       th Description
       th Action
     each book in list
       tr
         td= book.title 
-        td= book.id 
         td
           a.btn.btn-primary(data-toggle="collapse" href="#"+ book.id, role="button" aria-expanded="false" aria-controls="collapseExample") description
           div(class="collapse" id= book.id)
             div(class="card card-body")= book.description
         td
           a(href="/" + book.id) view
+        if logined
+          td
+            a(href="/" + book.id + "/delete") delete
         td
-          a(href="/" + book.id + "/delete") delete
+          a.btn.btn-primary(href="#") Add to cart
   .nav(aria-label="Page navigation example")
       - var previous = page - 1
       - var next = page + 1
