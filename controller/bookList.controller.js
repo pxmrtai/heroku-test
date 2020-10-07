@@ -5,7 +5,8 @@ module.exports.index = (req,res) => {
    res.render('index')
   
 }
-module.exports.listBook = (req,res)=>{               
+module.exports.listBook = (req,res)=>{          
+  var logined = req.signedCookies.userId
     var page = parseInt(req.query.page) || 1;
   var perPage = 2;
   var start = (page - 1) * perPage;
@@ -14,6 +15,7 @@ module.exports.listBook = (req,res)=>{
   res.render("book",{
       page,
     maxPage,
+    logined: logined,
     list: db
       .get("list")
       .drop(start)

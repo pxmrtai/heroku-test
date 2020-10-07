@@ -3,36 +3,37 @@ block headContent
 block navbar
  
   h1 Book List
-  .container.d-flex
-    form(action="/" method="POST")
-      .form-group
-          div
-            h2 Create Book
-          div
-            label(for="asd") Title
-            input.form-control#asd(type="text" name="title" required="required")
-            
-          div 
-            label(for="description") Description
-            input.form-control#description(type="text" name="description" required="required")
-            
-          div  
-          button.btn.btn-primary(type="submit") Create
-    
-    form.ml-4(action="/update" method="POST")
-      .form-group
-          div
-            h2 Update Title
-          div
-            label(for="id") ID
-            input#id.form-control(type="text" name="id" required="required")
+  if logined
+    .container.d-flex
+      form(action="/" method="POST")
+        .form-group
+            div
+              h2 Create Book
+            div
+              label(for="asd") Title
+              input.form-control#asd(type="text" name="title" required="required")
 
-          div 
-            label(for="abc") New Title
-            input#abc.form-control(type="text" name="title" required="required")
+            div 
+              label(for="description") Description
+              input.form-control#description(type="text" name="description" required="required")
 
-          div  
-          button.btn.btn-primary(type="submit") Update
+            div  
+            button.btn.btn-primary(type="submit") Create
+
+      form.ml-4(action="/update" method="POST")
+        .form-group
+            div
+              h2 Update Title
+            div
+              label(for="id") ID
+              input#id.form-control(type="text" name="id" required="required")
+
+            div 
+              label(for="abc") New Title
+              input#abc.form-control(type="text" name="title" required="required")
+
+            div  
+            button.btn.btn-primary(type="submit") Update
   table.table
     tr
       th Title
