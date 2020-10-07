@@ -43,7 +43,11 @@ module.exports.getcomplete = (req, res) => {
 };
 module.exports.postIndex = (req,res)=>{
     req.body.id = shortid.generate();
-
+    if(req.body.avatar){
+      req.body.avatar = req.file.path
+                          .split("/")
+                          .slice(1)
+                          .join("/");}
     db.get('list').push(req.body).write()
     res.redirect('/book')
 }
