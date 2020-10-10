@@ -44,8 +44,9 @@ block navbar
       th Action
     each book in list
       tr
-        td
-          img(src='/'+book.avatar)
+        if book.avatar
+          td
+            img(src='/'+book.avatar)
         td= book.title 
         td
           a.btn.btn-primary(data-toggle="collapse" href="#"+ book.id, role="button" aria-expanded="false" aria-controls="collapseExample") description
