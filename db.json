@@ -1,90 +1,22 @@
 {
   "list": [
     {
-      "title": "javascript",
-      "description": "this is cooking book",
-      "id": "FMCDGsgXr"
-    },
-    {
-      "title": "dancing",
-      "description": "this is japanese book",
-      "id": "wkaxxjSUr"
-    },
-    {
-      "title": "aasd",
-      "description": "sdfjklsfj",
-      "id": "TR9tP2ICW"
-    },
-    {
-      "title": "koko's story",
-      "description": "this is koko's book",
-      "id": "Y5Pd0z-Es"
-    },
-    {
-      "title": "nam",
-      "description": "this is Englishbook",
-      "id": "gYKRLzJcm"
-    },
-    {
-      "title": "dog",
-      "description": "this is dog book",
-      "id": "68IgRza0M"
-    },
-    {
-      "title": "cat",
-      "description": "this is cat book",
-      "id": "4MXom5w9b"
-    },
-    {
-      "title": "cat",
-      "description": "this is dog book",
-      "id": "Vis5C1DPt"
-    },
-    {
-      "title": "dog",
-      "description": "this is dog book",
-      "id": "-VOinqx6U"
-    },
-    {
-      "title": "dog",
-      "description": "this is dog book",
-      "id": "eL4yvt9rV"
-    },
-    {
-      "title": "dog",
-      "description": "this is dog book",
-      "id": "igI1FydJL",
-      "avatar": "uploads/8d60958482f71388e59f896f132ad939"
-    },
-    {
-      "title": "dog",
-      "description": "123123",
-      "id": "Fsd8cVrxa",
-      "avatar": "uploads/ccf38a30c77d658a91d3f6e1e554d932"
-    },
-    {
-      "title": "akari",
-      "description": "this is akari's book",
-      "id": "IBiDipEpf",
-      "avatar": "uploads/fdf7b0230ec8545fa1255922430f939f"
-    },
-    {
-      "title": "tai",
-      "description": "123123",
-      "id": "hNFtpBrA8",
-      "avatar": "uploads/864d201e94e4c4c26ea3343057e7f4bf"
-    },
-    {
-      "title": "123123",
-      "description": "123123",
-      "id": "drmvuwASV",
-      "avatar": "uploads/190ce54cb747e2716a09e22bd7e89b15"
-    },
-    {
       "title": "dog",
       "description": "this is dog book",
       "id": "cHrar0Ud6",
       "avatar": "uploads/c1af16a64dc7e14e99fc1a4461ee9aa2"
+    },
+    {
+      "title": "dog",
+      "description": "this is dog book",
+      "id": "0yush206q",
+      "avatar": "uploads/0aab1f0f836342eefd80e548895b89c0"
+    },
+    {
+      "title": "cat",
+      "description": "this is cat book",
+      "id": "UB333xPW8",
+      "avatar": "uploads/73eec1d335dde810af589c280186cb5f"
     }
   ],
   "user": [
