@@ -46,7 +46,7 @@ block navbar
       tr
         if book.avatar
           td
-            img(src='/'+book.avatar)
+            img(src='/'+book.avatar,width='30px')
         td= book.title 
         td
           a.btn.btn-primary(data-toggle="collapse" href="#"+ book.id, role="button" aria-expanded="false" aria-controls="collapseExample") description
@@ -58,7 +58,7 @@ block navbar
           td
             a(href="/" + book.id + "/delete") delete
         td
-          a.btn.btn-primary(href="#") Add to cart
+          a.btn.btn-primary(href="#",style='width:110px') Add to cart
   .nav(aria-label="Page navigation example")
       - var previous = page - 1
       - var next = page + 1

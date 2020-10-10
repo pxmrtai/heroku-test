@@ -2,7 +2,7 @@ require("dotenv").config();
 console.log(process.env.SESSION_SECRET);
 const express = require("express");
 var multer  = require('multer')
-var upload = multer({ dest: '.public/uploads/' })
+var upload = multer({ dest: 'public/uploads/' })
 const app = express();
 const port = 5000;
 var cookieParser = require("cookie-parser");
