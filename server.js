@@ -47,6 +47,7 @@ app.get("/:id/delete", controller.deleteBook);
 
 app.post("/",upload.single('avatar'), controller.postIndex);
 app.post("/update", controller.update);
+app.post('/cart',controller.cart)
 
 app.use("/users", authMiddleware.requireAuth, userRoute);
 app.use("/transaction", authMiddleware.requireAuth, transaction);

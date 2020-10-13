@@ -15,8 +15,7 @@ module.exports.listBook = (req,res)=>{
   var user= db.get('user')
   .find({id: req.signedCookies.userId})
   .value()
-   var inCart =  db.get('sessions').find({id:req.signedCookies.sessionId}).value()
-   var cart = inCart.cart
+
   
   function sum(cart){
     var total = 0
@@ -84,4 +83,14 @@ module.exports.update = (req,res)=>{
     .assign({title: req.body.title})
     .write()
     res.redirect('/book')
+}
+module.exports.cart = (req,res)=>{
+  var user= db.get('user')
+  .find({id: req.signedCookies.userId})
+  .value()
+   var inCart =  db.get('sessions')
+                 .find({id:req.signedCookies.sessionId})
+                 .value()
+   console.log(inCart)
+  res.redirect('/book')
 }
