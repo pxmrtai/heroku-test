@@ -3,7 +3,7 @@ block headContent
 block navbar
  
   h1 Book List
-  if logined
+  if user.isAdmin
     .container.d-flex
       form(action="/" method="POST",enctype="multipart/form-data")
         .form-group
@@ -54,7 +54,7 @@ block navbar
             div(class="card card-body")= book.description
         td
           a(href="/" + book.id) view
-        if logined
+        if user.isAdmin
           td
             a(href="/" + book.id + "/delete") delete
         td

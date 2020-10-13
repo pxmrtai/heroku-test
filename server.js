@@ -40,7 +40,7 @@ app.use(sessionMiddleware)
 
 db.defaults({ list: [] , sessions:[]}).write();
 
-app.get("/",authMiddleware.requireAuth, adminMiddleware.admin , controller.index);
+app.get("/",authMiddleware.requireAuth, controller.index);
 app.get("/book", controller.listBook);
 app.get("/:id",controller.view);
 app.get("/:id/delete", controller.deleteBook);

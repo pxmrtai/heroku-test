@@ -5,7 +5,11 @@ module.exports.index = (req,res) => {
    res.render('index')
   
 }
-module.exports.listBook = (req,res)=>{          
+module.exports.listBook = (req,res)=>{    
+  var user= db.get('user')
+  .find({id: req.signedCookies.userId})
+  .value()
+  console.log(user)
   var logined = req.signedCookies.userId
     var page = parseInt(req.query.page) || 1;
   var perPage = 5;
@@ -15,7 +19,7 @@ module.exports.listBook = (req,res)=>{
   res.render("book",{
       page,
     maxPage,
-    logined: logined,
+    user: user,
     list: db
       .get("list")
       .drop(start)
@@ -38,7 +42,9 @@ module.exports.deleteBook =function(req, res) {
  res.redirect('/book')
 }
 module.exports.getcomplete = (req, res) => {
-  db.get('transactions').find({id: req.params.id}).assign({isComplete: true}).write();
+  db.get('transactions')
+    .find({id: req.params.id})
+    .assign({isComplete: true}).write();
   res.redirect('/transactions');
 };
 module.exports.postIndex = (req,res)=>{
