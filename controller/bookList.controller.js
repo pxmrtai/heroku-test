@@ -5,7 +5,7 @@ module.exports.index = (req,res) => {
   var user= db.get('user')
   .find({id: req.signedCookies.userId})
   .value()
-  console.log(user)
+  
    res.render('index',{
      user:user
    })
@@ -15,7 +15,18 @@ module.exports.listBook = (req,res)=>{
   var user= db.get('user')
   .find({id: req.signedCookies.userId})
   .value()
-  console.log(user)
+   var inCart =  db.get('sessions').find({id:req.signedCookies.sessionId}).value()
+   var cart = inCart.cart
+   console.log(cart)
+  function sum(cart){
+     var total = 0
+  for(var number of cart){
+    return   total = total + number
+     
+   }
+  console.log(sum)
+  }
+ 
   var logined = req.signedCookies.userId
     var page = parseInt(req.query.page) || 1;
   var perPage = 5;
