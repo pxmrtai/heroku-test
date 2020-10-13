@@ -91,6 +91,9 @@ module.exports.cart = (req,res)=>{
    var inCart =  db.get('sessions')
                  .find({id:req.signedCookies.sessionId})
                  .value()
-   console.log(inCart)
+   db.get('rentalList').push(inCart).write()
+  db.get('rentalList').find({userId: user.id}).assign({email: user.email}).write()
+  
+
   res.redirect('/book')
 }
