@@ -21,8 +21,9 @@ const someOtherPlaintextPassword = "not_bacon";
 var userRoute = require("./routes/users.route");
 var authRoute = require("./routes/auth.route");
 var transaction = require("./routes/transaction.route");
+var cartRoute = require('./routes/cart.route')
 var controller = require("./controller/bookList.controller");
-var cartRoute = require
+
 
 var counting = require("./middleware/count.middleware");
 var authMiddleware = require("./middleware/auth.middleware");
@@ -50,6 +51,7 @@ app.post("/update", controller.update);
 app.use("/users", authMiddleware.requireAuth, userRoute);
 app.use("/transaction", authMiddleware.requireAuth, transaction);
 app.use("/auth", authRoute);
+app.use('/cart', cartRoute)
 app.use(express.static("public"));
 
 app.listen(port, () => {
