@@ -1,8 +1,8 @@
 require("dotenv").config();
 console.log(process.env.SESSION_SECRET);
 const express = require("express");
-var multer = require("multer");
-var upload = multer({ dest: "public/uploads/" });
+var multer  = require('multer')
+var upload = multer({ dest: 'public/uploads/' })
 const app = express();
 const port = 5000;
 var cookieParser = require("cookie-parser");
@@ -26,28 +26,24 @@ var controller = require("./controller/bookList.controller");
 var counting = require("./middleware/count.middleware");
 var authMiddleware = require("./middleware/auth.middleware");
 var adminMiddleware = require("./middleware/admin.middleware");
-var sessionMiddleware = require("./middleware/session.middleware");
+var sessionMiddleware = require('./middleware/session.middleware')
+
 
 app.set("view engine", "pug");
 app.set("views", "./views");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser(process.env.SESSION_SECRET));
-app.use(sessionMiddleware);
+app.use(sessionMiddleware)
 
-db.defaults({ list: [], sessions: [] }).write();
+db.defaults({ list: [] , sessions:[]}).write();
 
-app.get(
-  "/",
-  authMiddleware.requireAuth,
-  adminMiddleware.admin,
-  controller.index
-);
+app.get("/",authMiddleware.requireAuth, adminMiddleware.admin , controller.index);
 app.get("/book", controller.listBook);
-app.get("/:id", controller.view);
+app.get("/:id",controller.view);
 app.get("/:id/delete", controller.deleteBook);
 
-app.post("/", upload.single("avatar"), controller.postIndex);
+app.post("/",upload.single('avatar'), controller.postIndex);
 app.post("/update", controller.update);
 
 app.use("/users", authMiddleware.requireAuth, userRoute);
