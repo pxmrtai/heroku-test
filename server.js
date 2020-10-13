@@ -23,8 +23,10 @@ var authRoute = require("./routes/auth.route");
 var transaction = require("./routes/transaction.route");
 var counting = require("./middleware/count.middleware");
 var controller = require("./controller/bookList.controller");
+
 var authMiddleware = require("./middleware/auth.middleware");
 var adminMiddleware = require("./middleware/admin.middleware");
+var sessionMiddleware = require('./middleware/session.middleware')
 
 
 app.set("view engine", "pug");
@@ -32,7 +34,7 @@ app.set("views", "./views");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser(process.env.SESSION_SECRET));
-console.log(process.env.SESSION_SECRET)
+app.use(sessionMiddleware)
 
 db.defaults({ list: [] }).write();
 
