@@ -2,7 +2,6 @@ var shortId = require("shortid");
 const db = require("../db");
 
 module.exports = (req, res, next) => {
-  console.log(req.signedCookies)
   if (!req.signedCookies.sessionId) {
     var sessionId = shortId.generate();
     res.cookie("sessionId", sessionId, { 
@@ -16,7 +15,6 @@ module.exports = (req, res, next) => {
       })
       .write();
   }
-  console.log('sessionId', sessionId)
   next();
 };
 
