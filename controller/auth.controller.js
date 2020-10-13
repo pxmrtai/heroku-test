@@ -25,7 +25,8 @@ var user= db.get('user')
 }
 
 module.exports.login = (req,res)=>{
-  var user= db.get('user')
+
+     var user= db.get('user')
   .find({id: req.signedCookies.userId})
   .value()
   res.render('auth/login',{
@@ -33,6 +34,8 @@ module.exports.login = (req,res)=>{
   }
             
             )
+  
+ 
 
 }
 
