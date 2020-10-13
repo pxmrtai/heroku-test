@@ -32,11 +32,12 @@ module.exports.index = (req, res) => {
   });
 };
 module.exports.view = (req, res) => {
-   var id = req.params.id
-  
-  var user = db.get('user').find({id:id}).value()
+  var id = req.params.id
+  var user= db.get('user').find({id: req.signedCookies.userId}).value()
+  var users = db.get('user').find({id:id}).value()
   res.render("users/view", {
-    user: user
+    user: user,
+    users: users
   });
 };
 

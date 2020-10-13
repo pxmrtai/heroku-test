@@ -7,12 +7,6 @@
       "avatar": "uploads/c1af16a64dc7e14e99fc1a4461ee9aa2"
     },
     {
-      "title": "dog",
-      "description": "this is dog book",
-      "id": "0yush206q",
-      "avatar": "uploads/0aab1f0f836342eefd80e548895b89c0"
-    },
-    {
       "title": "cat",
       "description": "this is cat book",
       "id": "UB333xPW8",
@@ -77,7 +71,8 @@
       "email": "pxmrtai97@gmail.com2",
       "password": "$2b$10$p/6svYaMIBAUzn.TZKejR.SrEnpbpeGQGvKoQxIJL4vTy.asqbsUW",
       "id": "WbES3l9FO",
-      "isLogin": 0
+      "isLogin": 0,
+      "avatar": "uploads/005ab4b555f92a2881ddcb139047a2fe"
     },
     {
       "name": "koko",
@@ -261,6 +256,12 @@
     },
     {
       "id": "sBNEFiAb8"
+    },
+    {
+      "id": "yS9ZA3qce"
+    },
+    {
+      "id": "xhbdhutkf"
     }
   ]
 }
