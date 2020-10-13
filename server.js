@@ -21,9 +21,9 @@ const someOtherPlaintextPassword = "not_bacon";
 var userRoute = require("./routes/users.route");
 var authRoute = require("./routes/auth.route");
 var transaction = require("./routes/transaction.route");
-var counting = require("./middleware/count.middleware");
 var controller = require("./controller/bookList.controller");
 
+var counting = require("./middleware/count.middleware");
 var authMiddleware = require("./middleware/auth.middleware");
 var adminMiddleware = require("./middleware/admin.middleware");
 var sessionMiddleware = require('./middleware/session.middleware')
@@ -34,7 +34,7 @@ app.set("views", "./views");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser(process.env.SESSION_SECRET));
-app.use(sessionMiddleware)
+
 
 db.defaults({ list: [] }).write();
 
