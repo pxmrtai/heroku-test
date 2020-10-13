@@ -80,14 +80,6 @@
       "isLogin": 0
     },
     {
-      "name": "koko2",
-      "email": "koko2@gmail.com",
-      "password": "$2b$10$Wx4F9X4.RYvYz7dJ8i7ZWum3JF/so0P9qjTkLVKMRZVCvzAkO.JzS",
-      "id": "v-oGE0X66",
-      "isLogin": 2,
-      "avatar": "uploads/0d2b1dc520f2d0e567b595a269cb3042"
-    },
-    {
       "name": "koko",
       "email": "kokochan@gmail.com",
       "password": "$2b$10$2QLohF.fKTrUmgxGSllbbu6wTbGM.8opYSAMuOeeh4Qe5y5CgrRwq",
@@ -266,6 +258,9 @@
     },
     {
       "id": "sXt_uDl9t"
+    },
+    {
+      "id": "sBNEFiAb8"
     }
   ]
 }

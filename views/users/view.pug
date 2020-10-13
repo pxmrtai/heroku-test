@@ -11,10 +11,10 @@ block navbar
       li Email:  &nbsp&nbsp&nbsp 
         span= user.email
       li ID:  &nbsp&nbsp&nbsp 
-        span= users.id
+        span= user.id
       li
         if user.avatar
-            img(src='/' + users.avatar, width='100px')
+            img(src='/' + user.avatar, width='100px')
         else 
             img(src='https://cdn.glitch.com/77a339e2-d309-4888-9ac3-0ba94f1022ea%2Fdepositphotos_166074422-stock-illustration-default-avatar-profile-icon-grey.jpg?v=1601794635784', width='100px')
         a.btn.btn-primary(href="/users/profile/avatar/"+ user.id) Change photo

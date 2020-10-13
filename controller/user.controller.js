@@ -32,17 +32,11 @@ module.exports.index = (req, res) => {
   });
 };
 module.exports.view = (req, res) => {
-  var user = db
-    .get("user")
-    .find({ id: req.signedCookies.userId })
-    .value();
-  var users = db
-    .get("user")
-    .find({ id: req.signedCookies.userId })
-    .value();
+   var id = req.params.id
+  
+  var user = db.get('user').find({id:id}).value()
   res.render("users/view", {
-    user: user,
-    users: users
+    user: user
   });
 };
 
@@ -58,7 +52,6 @@ module.exports.createUser = (req, res) => {
 };
 module.exports.changeAvatar = (req, res) => {
   var id = req.params.id;
-  console.log(id);
   res.render("users/profile/avatar", {
     user: db
       .get("user")
