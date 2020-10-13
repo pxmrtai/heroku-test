@@ -250,14 +250,13 @@
   ],
   "sessions": [
     {
-      "id": "M48zB65BZ",
+      "id": "mJWzeIb2n",
       "cart": {
-        "cHrar0Ud6": 2,
-        "0yush206q": 1
-      }
-    },
-    {
-      "id": "mJWzeIb2n"
+        "cHrar0Ud6": 3,
+        "0yush206q": 3,
+        "UB333xPW8": 1
+      },
+      "userId": "1QCQCLBk-"
     }
   ]
 }

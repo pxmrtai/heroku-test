@@ -17,6 +17,14 @@ var count =  db.get('sessions')
    .set('cart.'+ cartId, count+1)
    .write()
   
+if(req.signedCookies.userId){
+ var user= db.get('user').find({id: req.signedCookies.userId}).value()
+ console.log(user)
+  db.get('sessions')
+    .find({id:sessionId})
+    .assign({userId: user.id})
+    .write()
+}
 
   res.redirect('/book')
 }
