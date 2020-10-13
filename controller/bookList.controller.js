@@ -27,7 +27,7 @@ module.exports.listBook = (req,res)=>{
     return total
   
   }
-  console.log(sum(cart))
+  console.log(sum([1,2,3,4]))
  
   var logined = req.signedCookies.userId
     var page = parseInt(req.query.page) || 1;
