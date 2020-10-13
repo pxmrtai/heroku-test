@@ -1,12 +1,10 @@
-var shortId = require('shortid')
+var shortid = require('shortid')
 
-module.export = (req,res,next)=>{
+module.exports = function(req,res,next){
   if(req.signedCookies.sessionId){
-     res.cookie('sessisonId', shortId.generate(),{
-    signed: true,
-    sameSite: 'None',
-    secure: true
-  })
+     res.cookie('sessisonId', shortid.generate(),{
+    signed: true
+  });
   }
   
   next()
