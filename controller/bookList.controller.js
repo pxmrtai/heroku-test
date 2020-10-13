@@ -19,13 +19,15 @@ module.exports.listBook = (req,res)=>{
    var cart = inCart.cart
    console.log(cart)
   function sum(cart){
-     var total = 0
+    var total = 0
   for(var number of cart){
-    return   total = total + number
-     
+    console.log(number)
+     total = total + number
    }
-  console.log(sum)
+    return total
+  
   }
+  console.log(sum(cart))
  
   var logined = req.signedCookies.userId
     var page = parseInt(req.query.page) || 1;
