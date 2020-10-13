@@ -36,7 +36,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(sessionMiddleware)
 
-db.defaults({ list: [] }).write();
+db.defaults({ list: [] , sessions:[]}).write();
 
 app.get("/",authMiddleware.requireAuth, adminMiddleware.admin , controller.index);
 app.get("/book", controller.listBook);
