@@ -8,5 +8,15 @@ module.exports.addToCart=(req,res,next)=>{
   if(!sessionId){
     res.redirect('/book')
   }
- 
+var count =  db.get('sessions')
+   .find({id: sessionId})
+   .get('cart.'+ cartId, 0)
+   .value()
+ db.get('sessions')
+   .find({id: sessionId})
+   .set('cart.'+ cartId, count+1)
+   .write()
+  
+
+  res.redirect('/book')
 }
