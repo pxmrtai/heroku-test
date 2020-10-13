@@ -17,7 +17,7 @@ module.exports.listBook = (req,res)=>{
   .value()
    var inCart =  db.get('sessions').find({id:req.signedCookies.sessionId}).value()
    var cart = inCart.cart
-   console.log(cart)
+  
   function sum(cart){
     var total = 0
   for(var number of cart){

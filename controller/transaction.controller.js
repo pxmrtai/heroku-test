@@ -6,6 +6,11 @@ const shortid = require('shortid')
 
 
 module.exports.rentalIndex = (req,res)=>{
+  var inCart =  db.get('sessions').find({id:req.signedCookies.sessionId}).value()
+   var cart = inCart.cart
+   console.log(cart)
+  
+  
   var page = parseInt(req.query.page) || 1;
   var perPage = 5;
   var start = (page - 1) * perPage;
@@ -33,10 +38,19 @@ module.exports.createRentalList =(req,res)=>{
 
 
 module.exports.postCreateRentalList = (req,res)=>{
+  
+  var inCart =  db.get('sessions').find({id:req.signedCookies.sessionId}).value()
+  var cart = inCart.cart
+    db.get('rentalList')
+      .find({id: req.signedCookies.sessionId})
+      .assigned(cart)
+  
+  
     var user = db.get('user').value()
     req.body.id = shortid.generate();
     db.get('rentalList').push(req.body).write()
     res.redirect('/transaction/index')
+  
 }
 
 
