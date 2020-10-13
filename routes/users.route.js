@@ -19,8 +19,6 @@ db.defaults({ user: [{"isLogin":0}] })
   .write()
 
 router.get('/index', controller.index)
-router.get('/customer',controller.customer)
-router.get('/userLogin',controller.userLogin)
 router.get('/profile/avatar/:id',controller.changeAvatar)
 router.get('/:id',controller.view)
 router.get("/index/:id/delete",controller.delete)

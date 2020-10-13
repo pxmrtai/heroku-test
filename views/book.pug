@@ -3,39 +3,40 @@ block headContent
 block navbar
  
   h1 Book List
-  if user.isAdmin
-    .container.d-flex
-      form(action="/" method="POST",enctype="multipart/form-data")
-        .form-group
-            div
-              h2 Create Book
-            div
-              label(for="asd") Title
-              input.form-control#asd(type="text" name="title" required="required")
+  if user
+    if user.isAdmin
+      .container.d-flex
+        form(action="/" method="POST",enctype="multipart/form-data")
+          .form-group
+              div
+                h2 Create Book
+              div
+                label(for="asd") Title
+                input.form-control#asd(type="text" name="title" required="required")
 
-            div 
-              label(for="description") Description
-              input.form-control#description(type="text" name="description" required="required")
-            div
-              label(for="avatar") avatar
-                input#avatar.form-control-file(type="file",name='avatar')
-            div  
-            button.btn.btn-primary(type="submit") Create
+              div 
+                label(for="description") Description
+                input.form-control#description(type="text" name="description" required="required")
+              div
+                label(for="avatar") avatar
+                  input#avatar.form-control-file(type="file",name='avatar')
+              div  
+              button.btn.btn-primary(type="submit") Create
 
-      form.ml-4(action="/update" method="POST")
-        .form-group
-            div
-              h2 Update Title
-            div
-              label(for="id") ID
-              input#id.form-control(type="text" name="id" required="required")
+        form.ml-4(action="/update" method="POST")
+          .form-group
+              div
+                h2 Update Title
+              div
+                label(for="id") ID
+                input#id.form-control(type="text" name="id" required="required")
 
-            div 
-              label(for="abc") New Title
-              input#abc.form-control(type="text" name="title" required="required")
+              div 
+                label(for="abc") New Title
+                input#abc.form-control(type="text" name="title" required="required")
 
-            div  
-            button.btn.btn-primary(type="submit") Update
+              div  
+              button.btn.btn-primary(type="submit") Update
   table.table
     tr
       th Avatar
@@ -54,9 +55,10 @@ block navbar
             div(class="card card-body")= book.description
         td
           a(href="/" + book.id) view
-        if user.isAdmin
-          td
-            a(href="/" + book.id + "/delete") delete
+        if user
+          if user.isAdmin
+            td
+              a(href="/" + book.id + "/delete") delete
         td
           a.btn.btn-primary(href="/cart/add/"+ book.id,style='width:110px') Add to cart
   .nav(aria-label="Page navigation example")

@@ -14,29 +14,6 @@ cloudinary.config({
   api_key: process.env.API_KEY,
   api_secret: process.env.API_SECRET
 });
-
-module.exports.customer = (req, res) => {
-  var listBook = db.get("list").value();
-  var rentalList = db.get("rentalList").value();
-
-  res.render("userOnly/customer", {
-    list: db.get("list").value(),
-    rentalList: rentalList
-  });
-};
-module.exports.userLogin = (req, res) => {
-  if (req.signedCookies.userId) {
-    var user = db
-      .get("user")
-      .find({ id: req.signedCookies.userId })
-      .value();
-
-    res.render("userOnly/index", {
-      user: user
-    });
-    return;
-  }
-};
 module.exports.index = (req, res) => {
   var page = parseInt(req.query.page) || 1;
   console.log(page);

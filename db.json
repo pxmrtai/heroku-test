@@ -19,12 +19,6 @@
       "avatar": "uploads/73eec1d335dde810af589c280186cb5f"
     },
     {
-      "title": "japanese",
-      "description": "this is japanese's book",
-      "id": "AL3elkX_7",
-      "avatar": "uploads/cc115e1227610c686389ea4ddbeb2237"
-    },
-    {
       "title": "dog",
       "description": "this is dog book",
       "id": "NP9WIXQpv",
@@ -269,6 +263,9 @@
     },
     {
       "id": "LM0fr17Wb"
+    },
+    {
+      "id": "sXt_uDl9t"
     }
   ]
 }
