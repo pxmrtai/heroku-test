@@ -15,13 +15,24 @@ cloudinary.config({
 
 
 module.exports.resign=(req,res)=>{
-
-  res.render('auth/resign')
+var user= db.get('user')
+  .find({id: req.signedCookies.userId})
+  .value()
+  res.render('auth/resign',{
+    user:user
+  })
   
 }
 
 module.exports.login = (req,res)=>{
-  res.render('auth/login')
+  var user= db.get('user')
+  .find({id: req.signedCookies.userId})
+  .value()
+  res.render('auth/login',{
+    user:user
+  }
+            
+            )
 
 }
 

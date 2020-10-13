@@ -91,7 +91,7 @@
       "password": "$2b$10$Wx4F9X4.RYvYz7dJ8i7ZWum3JF/so0P9qjTkLVKMRZVCvzAkO.JzS",
       "id": "v-oGE0X66",
       "isLogin": 2,
-      "avatar": "uploads/ca55ed73213f03d8a5d322bb1f789629"
+      "avatar": "uploads/0d2b1dc520f2d0e567b595a269cb3042"
     },
     {
       "name": "koko",
@@ -261,11 +261,14 @@
     {
       "id": "NQu5fFncF",
       "cart": {
-        "0yush206q": 1,
-        "UB333xPW8": 1,
+        "0yush206q": 2,
+        "UB333xPW8": 2,
         "cHrar0Ud6": 1
       },
       "userId": "v-oGE0X66"
+    },
+    {
+      "id": "LM0fr17Wb"
     }
   ]
 }

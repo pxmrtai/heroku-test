@@ -2,7 +2,12 @@ const db = require('../db')
 const shortid = require('shortid')
 
 module.exports.index = (req,res) => {
-   res.render('index')
+  var user= db.get('user')
+  .find({id: req.signedCookies.userId})
+  .value()
+   res.render('index',{
+     user:user
+   })
   
 }
 module.exports.listBook = (req,res)=>{    
@@ -28,10 +33,15 @@ module.exports.listBook = (req,res)=>{
   })
 }
 module.exports.view = (req,res)=>{
+    var user = db
+    .get("user")
+    .find({ id: req.signedCookies.userId })
+    .value();
     var id = req.params.id;
     var book = db.get('list').find({id:id}).value()
     res.render('view',{
-        list: book
+        list: book,
+        user: user
     })
 }
 module.exports.deleteBook =function(req, res) {
