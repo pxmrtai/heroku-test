@@ -6,14 +6,13 @@ module.exports = (req,res,next)=>{
   if(!req.signedCookies.sessionId){
     var sessionId = shortId.generate()
      res.cookie('sessisonId', sessionId,{
-    signed: true,
-    sameSite: 'None',
-    secure: true
+    signed: true
   })
-    db.get('sessions').push( {
+   var a = db.get('sessions').push( {
       id : sessionId
     }).write()
   }
+  console.log(a)
   
   next()
   
