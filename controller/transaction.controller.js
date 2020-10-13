@@ -44,8 +44,13 @@ module.exports.postCreateRentalList = (req,res)=>{
     db.get('rentalList')
       .find({id: req.signedCookies.sessionId})
       .assigned(cart)
+      .write()
   
-  
+  var a=db.get('user')
+      .find({id: req.signedCookies.sessionId})
+      .value()
+  console.log(a)
+
     var user = db.get('user').value()
     req.body.id = shortid.generate();
     db.get('rentalList').push(req.body).write()
