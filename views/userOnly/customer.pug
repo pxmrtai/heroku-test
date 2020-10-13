@@ -18,3 +18,5 @@ block navbar
               div(class="card card-body")= book.description
           td
             a(href="/" + book.id) view
+          td
+            a.btn.btn-primary(href="/cart/add/"+ book.id,style='width:110px') Add to cart
