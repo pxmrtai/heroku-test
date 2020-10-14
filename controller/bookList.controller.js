@@ -16,11 +16,20 @@ module.exports.listBook = (req,res)=>{
   .find({id: req.signedCookies.userId})
   .value()
 
-  
+  var inCart =  db.get('sessions').find({id:req.signedCookies.sessionId}).value()
+   var cart = inCart.cart
+   
 
     var total = 0
   for(var number in cart){
-    console.log(number)
+      console.log('a'+number)
+    for(var book in number){
+       var quantity = number[book]
+       console.log(book)
+            
+
+    }
+   
      total = total + number
    }
     return total
