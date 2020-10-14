@@ -17,16 +17,16 @@ module.exports.listBook = (req,res)=>{
   .value()
 
   
-  function sum(cart){
+
     var total = 0
-  for(var number of cart){
+  for(var number in cart){
     console.log(number)
      total = total + number
    }
     return total
   
-  }
-  console.log(sum([1,2,3,4]))
+
+ 
  
   var logined = req.signedCookies.userId
     var page = parseInt(req.query.page) || 1;
