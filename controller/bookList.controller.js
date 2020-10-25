@@ -1,5 +1,7 @@
 const db = require('../db')
 const shortid = require('shortid')
+var User = require('../models/user.model')
+
 
 module.exports.index = (req,res) => {
   var user= db.get('user')
@@ -11,32 +13,11 @@ module.exports.index = (req,res) => {
    })
   
 }
-module.exports.listBook = (req,res)=>{    
-  var user= db.get('user')
-  .find({id: req.signedCookies.userId})
-  .value()
-
-  var inCart =  db.get('sessions').find({id:req.signedCookies.sessionId}).value()
-   var cart = inCart.cart
-   
-
-    var total = 0
-  for(var number in cart){
-      console.log('a'+number)
-    for(var book in number){
-       var quantity = number[book]
-       console.log(book)
-            
-
-    }
-   
-     total = total + number
-   }
-    return total
-  
-
- 
- 
+module.exports.listBook =async (req,res)=>{    
+  var user= await User.find({})
+  //     db.get('user')
+  // .find({id: req.signedCookies.userId})
+  // .value()
   var logined = req.signedCookies.userId
     var page = parseInt(req.query.page) || 1;
   var perPage = 5;
