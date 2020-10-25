@@ -19,7 +19,7 @@ cloudinary.config({
 module.exports.index = (req, res,next) => {
    var page = parseInt(req.query.page) || 1;
   // console.log(page);
-   var perPage = 2;
+   var perPage = 3;
   User
       .find() // find tất cả các data
       .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
@@ -29,8 +29,8 @@ module.exports.index = (req, res,next) => {
           if (err) return next(err);
            res.render('users/index',{
                userList,
-               current: page,
-               pages: Math.ceil(count/perPage),
+               page,
+               maxPage: Math.ceil(count/perPage),
                n: 0
            }) 
         });
@@ -59,9 +59,10 @@ module.exports.view = (req, res) => {
 };
 
 module.exports.delete = function(req, res) {
-  db.get("user")
-    .remove({ id: req.params.id })
-    .write();
+  
+  // db.get("user")
+  //   .remove({ id: req.params.id })
+  //   .write();
 
   res.redirect("/users/index");
 };
