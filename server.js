@@ -5,6 +5,12 @@ var multer  = require('multer')
 var upload = multer({ dest: 'public/uploads/' })
 const app = express();
 const port = 5000;
+var mongoose = require('mongoose')
+mongoose.connect(process.env.MONGO_URL,{useUnifiedTopology: true,
+  useNewUrlParser: true, })
+const dbs = mongoose.connection
+ dbs.on('error', error => console.error(error))
+ dbs.once('open', () => console.log('Connected to Database'))
 var cookieParser = require("cookie-parser");
 const low = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
