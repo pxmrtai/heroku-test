@@ -48,13 +48,13 @@ module.exports.index = (req, res,next) => {
   //     .value()
   // });
 };
-module.exports.view = (req, res) => {
-  var id = req.params.id
-  var user= db.get('user').find({id: req.signedCookies.userId}).value()
-  var users = db.get('user').find({id:id}).value()
+module.exports.view = async (req, res) => {
+   var id = req.params.id;
+  console.log(id)
+  var user = await User.findById({_id:id})
+  console.log(user)
   res.render("users/view", {
     user: user,
-    users: users
   });
 };
 
