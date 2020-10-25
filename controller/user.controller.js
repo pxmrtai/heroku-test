@@ -69,33 +69,30 @@ module.exports.delete = async function (req, res) {
 module.exports.createUser = (req, res) => {
   res.render("users/create", {});
 };
-module.exports.changeAvatar = (req, res) => {
+module.exports.changeAvatar =async (req, res) => {
   var id = req.params.id;
   res.render("users/profile/avatar", {
-    user: db
-      .get("user")
-      .find({ id: id })
-      .value()
+    user: await User.findById({_id:id})
   });
 };
-module.exports.postChangeAvatar = (req, res) => {
+module.exports.postChangeAvatar =async (req, res) => {
   var id = req.params.id;
-  var user = db
-    .get("user")
-    .find({ id: id })
-    .value();
+  var user = await User.findById({_id:id})
+  console.log(user)
   req.body.avatar = req.file.path
     .split("/")
     .slice(1)
     .join("/");
-  db.get("user")
-    .find({ id: req.params.id })
-    .assign({ avatar: req.body.avatar })
-    .write();
-  var admin = db
-    .get("user")
-    .find({ id: req.signedCookies.userId })
-    .value();
+  // db.get("user")
+  //   .find({ id: req.params.id })
+  //   .assign({ avatar: req.body.avatar })
+  //   .write();
+  await User.findByIdAndUpdate({_id:id},{avatar:req.body.avatar})
+  var admin = await User.findOne({id:req.signedCookies.userId})
+    //   db
+    // .get("user")
+    // .find({ id: req.signedCookies.userId })
+    // .value();
   if (!admin.isAdmin) {
     return res.redirect("/users/userLogin");
   }
