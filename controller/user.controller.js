@@ -58,12 +58,12 @@ module.exports.view = async (req, res) => {
   });
 };
 
-module.exports.delete = function(req, res) {
-  
+module.exports.delete = async function (req, res) {
+  var id = req.params.id;
   // db.get("user")
   //   .remove({ id: req.params.id })
   //   .write();
-
+  await User.findByIdAndRemove({_id:id})
   res.redirect("/users/index");
 };
 module.exports.createUser = (req, res) => {
