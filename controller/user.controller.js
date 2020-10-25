@@ -8,16 +8,33 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 const myPlaintextPassword = "s0//P4$$w0rD";
 const someOtherPlaintextPassword = "not_bacon";
+var User = require('../models/user.model')
+
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.API_KEY,
   api_secret: process.env.API_SECRET
 });
-module.exports.index = (req, res) => {
+module.exports.index = (req, res,next) => {
    var page = parseInt(req.query.page) || 1;
   // console.log(page);
    var perPage = 2;
+  User
+      .find() // find tất cả các data
+      .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+      .limit(perPage)
+      .exec((err, userList) => {
+        User.countDocuments((err, count) => { // đếm để tính có bao nhiêu trang
+          if (err) return next(err);
+           res.render('users/index',{
+               userList,
+               current: page,
+               pages: Math.ceil(count/perPage),
+               n: 0
+           }) 
+        });
+      });
   // var start = (page - 1) * perPage;
   // var end = (page - 1) * perPage + perPage;
   // var maxPage = Math.ceil(db.get("user").value().length / perPage);
