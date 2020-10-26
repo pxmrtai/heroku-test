@@ -85,8 +85,9 @@ module.exports.postLogin = async (req,res,next)=>{
   var email = req.body.email
   var password = req.body.password
 
-  var user = await User.findOne({email:email}).value()
-      // db.get('user').find({email:email}).value()
+  var user =
+      // await User.findOne({email:email}).value()
+      db.get('user').find({email:email}).value()
   console.log(user)
   if(!user){
   
@@ -104,21 +105,23 @@ module.exports.postLogin = async (req,res,next)=>{
   if(!isCorrectPassword){
    var email = req.body.email
     
-    if(!user.isLogin){var check=  await User.findOneAndUpdate({email:email},{isLogin: 0})
-      //   db.get("user")
-      // .find({email:email })
-      // .set("isLogin", 0)
-      // .write();
+    if(!user.isLogin){var check=  
+        // await User.findOneAndUpdate({email:email},{isLogin: 0})
+        db.get("user")
+      .find({email:email })
+      .set("isLogin", 0)
+      .write();
     console.log('check'+check)}
-var wrongTime=  await User.findOneAndUpdate({email:email},{isLogin: user.isLogin+1})
-//     db.get('user')
-// .find({email:email})
-// .assign({isLogin: user.isLogin+1})
-// .write()
+var wrongTime=  
+    // await User.findOneAndUpdate({email:email},{isLogin: user.isLogin+1})
+    db.get('user')
+.find({email:email})
+.assign({isLogin: user.isLogin+1})
+.write()
 console.log(wrongTime)
     if(wrongTime.isLogin>3){
       
-      await User.findOneAndUpdate({email:email},{"isLogin": 0})
+      // await User.findOneAndUpdate({email:email},{"isLogin": 0})
      var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -160,7 +163,7 @@ console.log(wrongTime)
   }
   
   
-  res.cookie('userId', user._id,{
+  res.cookie('userId', user.id,{
     signed: true,
     sameSite: 'None',
     secure: true
