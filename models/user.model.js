@@ -5,7 +5,8 @@ var userSchema = new mongoose.Schema({
     phone:String,
     email: String,
     password:String,
-    isAdmin: Boolean
+    isAdmin: Boolean,
+    isLogin: Number
   
 })
 var User = mongoose.model('User',userSchema)
