@@ -1,39 +1,54 @@
 const db = require('../db')
 const shortid = require('shortid')
 var User = require('../models/user.model')
+var Book = require('../models/book.model')
+
 
 
 module.exports.index = (req,res) => {
-  var user= db.get('user')
-  .find({id: req.signedCookies.userId})
-  .value()
-  
    res.render('index',{
-     user:user
    })
   
 }
-module.exports.listBook =async (req,res)=>{    
-  var user= await User.find({})
+module.exports.listBook =async (req,res,next)=>{  
+    var user= await User.find({})
+   var page = parseInt(req.query.page) || 1;
+  // console.log(page);
+   var perPage = 3;
+  User
+      .find() // find tất cả các data
+      .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
+      .limit(perPage)
+      .exec((err, list) => {
+        User.countDocuments((err, count) => { // đếm để tính có bao nhiêu trang
+          if (err) return next(err);
+           res.render('book',{
+               list,
+               user,
+               page,
+               maxPage: Math.ceil(count/perPage)
+           }) 
+        });
+      });
   //     db.get('user')
   // .find({id: req.signedCookies.userId})
   // .value()
-  var logined = req.signedCookies.userId
-    var page = parseInt(req.query.page) || 1;
-  var perPage = 5;
-  var start = (page - 1) * perPage;
-  var end = (page - 1) * perPage + perPage;
-  var maxPage =  Math.ceil(db.get("list").value().length / perPage);
-  res.render("book",{
-      page,
-    maxPage,
-    user: user,
-    list: db
-      .get("list")
-      .drop(start)
-      .take(perPage)
-      .value()
-  })
+  // var logined = req.signedCookies.userId
+  //   var page = parseInt(req.query.page) || 1;
+  // var perPage = 5;
+  // var start = (page - 1) * perPage;
+  // var end = (page - 1) * perPage + perPage;
+  // var maxPage =  Math.ceil(db.get("list").value().length / perPage);
+  // res.render("book",{
+  //     page,
+  //   maxPage,
+  //   user: user,
+  //   list: db
+  //     .get("list")
+  //     .drop(start)
+  //     .take(perPage)
+  //     .value()
+  // })
 }
 module.exports.view = (req,res)=>{
     var user = db
