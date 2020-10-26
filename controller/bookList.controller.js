@@ -11,8 +11,10 @@ module.exports.index = (req,res) => {
   
 }
 module.exports.listBook =async (req,res,next)=>{  
-    var user= await User.findById({id:req.singedCookies.userId})
-    console.log(user)
+    var user= await User.find({id:req.signedCookies.userId})
+    console.log(req.signedCookies.userId)
+      console.log(user)
+
    var page = parseInt(req.query.page) || 1;
   // console.log(page);
    var perPage = 3;
@@ -21,7 +23,7 @@ module.exports.listBook =async (req,res,next)=>{
       .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
       .limit(perPage)
       .exec((err, list) => {
-        User.countDocuments((err, count) => { // đếm để tính có bao nhiêu trang
+        Book.countDocuments((err, count) => { // đếm để tính có bao nhiêu trang
           if (err) return next(err);
            res.render('book',{
                list,
