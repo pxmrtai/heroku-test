@@ -6,6 +6,8 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const shortid = require('shortid')
 var nodemailer = require('nodemailer');
+var User = require('../models/user.model')
+
 
 cloudinary.config({
     cloud_name: "dvjjx3g49",
@@ -82,7 +84,8 @@ module.exports.postLogin = async (req,res)=>{
 var email = req.body.email
   var password = req.body.password
 
-  var user= db.get('user').find({email:email}).value()
+  var user= await User.find({email:email})
+      // db.get('user').find({email:email}).value()
   
   if(!user){
   
@@ -100,21 +103,21 @@ var email = req.body.email
   if(!isCorrectPassword){
    var email = req.body.email
     
-    if(!user.isLogin){var check=  db.get("user")
-      .find({email:email })
-      .set("isLogin", 0)
-      .write();
+    if(!user.isLogin){var check=  await User.findOneAndUpdate({email:email},{"isLogin": 0})
+      //   db.get("user")
+      // .find({email:email })
+      // .set("isLogin", 0)
+      // .write();
     console.log('check'+check)}
-var wrongTime=  db.get('user')
-.find({email:email})
-.assign({isLogin: user.isLogin+1})
-.write()
+var wrongTime=  await User.findOneAndUpdate({email:email},{isLogin: user.isLogin+1})
+//     db.get('user')
+// .find({email:email})
+// .assign({isLogin: user.isLogin+1})
+// .write()
 console.log(wrongTime)
     if(wrongTime.isLogin>3){
       
-      db.get('user').find({email:email})
-.assign({isLogin: 0})
-.write()
+      await User.findOneAndUpdate({email:email},{"isLogin": 0})
      var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -156,7 +159,7 @@ console.log(wrongTime)
   }
   
   
-  res.cookie('userId', user.id,{
+  res.cookie('userId', user._id,{
     signed: true,
     sameSite: 'None',
     secure: true
