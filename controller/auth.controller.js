@@ -9,6 +9,7 @@ var nodemailer = require('nodemailer');
 var User = require('../models/user.model')
 
 
+
 cloudinary.config({
     cloud_name: "dvjjx3g49",
     api_key: "795484751145565",
@@ -80,13 +81,13 @@ module.exports.postResign = async (req,res)=>{
   }
   }
 
-module.exports.postLogin = async (req,res)=>{
-var email = req.body.email
+module.exports.postLogin = async (req,res,next)=>{
+  var email = req.body.email
   var password = req.body.password
 
-  var user= await User.find({email:email})
+  var user= await User.findById({}).value()
       // db.get('user').find({email:email}).value()
-  
+  console.log(user)
   if(!user){
   
      return res.render('auth/login',{
