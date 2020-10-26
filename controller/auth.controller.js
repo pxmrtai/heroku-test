@@ -85,7 +85,7 @@ module.exports.postLogin = async (req,res,next)=>{
   var email = req.body.email
   var password = req.body.password
 
-  var user= await User.findById({}).value()
+  var user = await User.findOne({email:email}).value()
       // db.get('user').find({email:email}).value()
   console.log(user)
   if(!user){
