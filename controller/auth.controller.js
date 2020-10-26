@@ -103,7 +103,7 @@ var email = req.body.email
   if(!isCorrectPassword){
    var email = req.body.email
     
-    if(!user.isLogin){var check=  await User.findOneAndUpdate({email:email},{"isLogin": 0})
+    if(!user.isLogin){var check=  await User.findOneAndUpdate({email:email},{isLogin: 0})
       //   db.get("user")
       // .find({email:email })
       // .set("isLogin", 0)
