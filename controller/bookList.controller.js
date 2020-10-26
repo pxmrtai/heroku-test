@@ -11,11 +11,12 @@ module.exports.index = (req,res) => {
   
 }
 module.exports.listBook =async (req,res,next)=>{  
-    var user= await User.find({})
+    var user= await User.findById({id:req.singedCookies.userId})
+    console.log(user)
    var page = parseInt(req.query.page) || 1;
   // console.log(page);
    var perPage = 3;
-  User
+  Book
       .find() // find tất cả các data
       .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
       .limit(perPage)
