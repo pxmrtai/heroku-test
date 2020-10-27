@@ -49,10 +49,12 @@ module.exports.postResign = async (req,res)=>{
   var hashPassword = await bcrypt.hash(password, saltRounds);
   req.body.password = hashPassword;
   
+ 
+
   db.get('user').push(req.body).write()
-  var b=db.get('user').find({email:email})
-.push({isLogin: 1})
-.write()
+//   var b=db.get('user').find({email:email})
+// .push({isLogin: 1})
+// .write()
   var values = req.body
   console.log(values)
   res.render('auth/login',{
@@ -159,13 +161,15 @@ console.log(wrongTime)
    });
   }
   
-  
-  res.cookie('userId', user._id,{
+  if(user._id){
+    res.cookie('userId', user._id,{
     signed: true,
     sameSite: 'None',
     secure: true
   }
             );
+  }
+  
   
 res.redirect('/')
 
