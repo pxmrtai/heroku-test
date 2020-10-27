@@ -17,21 +17,17 @@ cloudinary.config({
   });
 
 
-module.exports.resign=(req,res)=>{
-var user= db.get('user')
-  .find({id: req.signedCookies.userId})
-  .value()
+module.exports.resign=async(req,res)=>{
+var user =  await User.findById({_id: req.signedCookies.userId})
   res.render('auth/resign',{
     user:user
   })
   
 }
 
-module.exports.login = (req,res)=>{
+module.exports.login = async(req,res)=>{
 
-     var user= db.get('user')
-  .find({id: req.signedCookies.userId})
-  .value()
+     var user =  await User.findById({_id: req.signedCookies.userId})
   res.render('auth/login',{
     user:user
   }
