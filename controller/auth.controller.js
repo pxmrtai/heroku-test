@@ -18,24 +18,13 @@ cloudinary.config({
 
 
 module.exports.resign=async(req,res)=>{
-var user =  await User.findById({_id: req.signedCookies.userId})
-  res.render('auth/resign',{
-    user:user
-  })
+
+  res.render('auth/resign')
   
 }
 
 module.exports.login = async(req,res)=>{
-
-     var user =  await User.findById({_id: req.signedCookies.userId})
-  res.render('auth/login',{
-    user:user
-  }
-            
-            )
-  
- 
-
+    res.render('auth/login')
 }
 
 module.exports.postResign = async (req,res)=>{
@@ -161,14 +150,14 @@ console.log(wrongTime)
    });
   }
   
-  if(user.id){
-    res.cookie('userId', user.id,{
+
+    res.cookie('userId', user._id,{
     signed: true,
     sameSite: 'None',
     secure: true
   }
             );
-  }
+  
   
   
 res.redirect('/')
