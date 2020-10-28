@@ -60,30 +60,40 @@ module.exports.view = async(req,res)=>{
     // .find({ id: req.signedCookies.userId })
     // .value();
     var id = req.params.id;
-    var book = db.get('list').find({id:id}).value()
+    var book = await  Book.findById(id)
+        // db.get('list').find({id:id}).value()
     res.render('view',{
         list: book,
         user: user
     })
 }
-module.exports.deleteBook =function(req, res) {
-     db.get("list")
-     .remove({ id: req.params.id})
-     .write()
+module.exports.deleteBook =async function(req, res) {
+      var id = req.params.id;
+
+  await  Book.findByIdAndRemove(id)
+     // db.get("list")
+     // .remove({ id: req.params.id})
+     // .write()
      
  res.redirect('/book')
 }
-module.exports.getcomplete = (req, res) => {
-  db.get('transactions')
-    .find({id: req.params.id})
-    .assign({isComplete: true}).write();
-  res.redirect('/transactions');
-};
-module.exports.postIndex = (req,res)=>{
-    req.body.id = shortid.generate();
+// module.exports.getcomplete = async(req, res) => {
+//    var id = req.params.id;
+//   await  Book.findOneAndUpdate({_id:id},{isComplete: true})
+//   // db.get('transactions')
+//   //   .find({id: req.params.id})
+//   //   .assign({isComplete: true}).write();
+//   res.redirect('/transactions');
+// };
+module.exports.postIndex = async(req,res)=>{
+   
     req.body.avatar = req.file.path.split("/").slice(1).join("/")
-  console.log(req.body.avatar)
-    db.get('list').push(req.body).write()
+ 
+    new Book({
+      title: req.body.title,
+    avatar: req.body.avatar,
+    description:req.body.description,
+    })
     res.redirect('/book')
 }
 module.exports.update = (req,res)=>{
