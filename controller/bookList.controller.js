@@ -93,7 +93,7 @@ module.exports.postIndex = async(req,res)=>{
       title: req.body.title,
     avatar: req.body.avatar,
     description:req.body.description,
-    })
+    }).save()
     res.redirect('/book')
 }
 module.exports.update = (req,res)=>{
