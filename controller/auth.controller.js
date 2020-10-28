@@ -27,7 +27,7 @@ var user =  await User.findById({_id: req.signedCookies.userId})
 
 module.exports.login = async(req,res)=>{
 
-     var user =  await User.findById({_id: req.signedCookies.userId})
+     var user =  await User.findById({id: req.signedCookies.userId})
   res.render('auth/login',{
     user:user
   }
@@ -161,7 +161,7 @@ console.log(wrongTime)
    });
   }
   
-  if(user._id){
+  if(user.id){
     res.cookie('userId', user.id,{
     signed: true,
     sameSite: 'None',
