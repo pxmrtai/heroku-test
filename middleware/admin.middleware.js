@@ -1,7 +1,9 @@
 const db = require('../db')
-module.exports.admin = (req,res,next)=>{
+var User = require('../models/user.model')
+
+module.exports.admin = async(req,res,next)=>{
   if(req.signedCookies.userId){
-    var user = db.get('user').find({id: req.signedCookies.userId}).value()
+    var user = await User.find(req.signedCookies.userId)
     
     if (user.isAdmin){
      return next()

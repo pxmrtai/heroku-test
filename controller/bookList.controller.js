@@ -53,11 +53,12 @@ module.exports.listBook =async (req,res,next)=>{
   //     .value()
   // })
 }
-module.exports.view = (req,res)=>{
-    var user = db
-    .get("user")
-    .find({ id: req.signedCookies.userId })
-    .value();
+module.exports.view = async(req,res)=>{
+    var user = await User.findById(req.signedCookies.userId)
+    //     db
+    // .get("user")
+    // .find({ id: req.signedCookies.userId })
+    // .value();
     var id = req.params.id;
     var book = db.get('list').find({id:id}).value()
     res.render('view',{
