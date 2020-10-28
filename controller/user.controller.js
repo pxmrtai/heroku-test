@@ -51,7 +51,7 @@ module.exports.index = (req, res,next) => {
 module.exports.view = async (req, res) => {
    var id = req.params.id;
   console.log(id)
-  var user = await User.findById({_id:id})
+  var user = await User.findById(id)
   console.log(user)
   res.render("users/view", {
     user: user,

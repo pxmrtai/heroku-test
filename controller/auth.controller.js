@@ -40,7 +40,15 @@ module.exports.postResign = async (req,res)=>{
   
  
 
-  db.get('user').push(req.body).write()
+  var user = new User(
+    {
+      name: req.body.name,
+    avatar: req.body.avatar,
+    phone:req.body.phone,
+    email: email,
+    password:password,
+      
+    })
 //   var b=db.get('user').find({email:email})
 // .push({isLogin: 1})
 // .write()
