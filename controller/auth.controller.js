@@ -27,7 +27,7 @@ var user =  await User.findById({_id: req.signedCookies.userId})
 
 module.exports.login = async(req,res)=>{
 
-     var user =  await User.findById({id: req.signedCookies.userId})
+     var user =  await User.findById({_id: req.signedCookies.userId})
   res.render('auth/login',{
     user:user
   }
