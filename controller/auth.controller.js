@@ -162,7 +162,7 @@ console.log(wrongTime)
   }
   
   if(user._id){
-    res.cookie('userId', user._id,{
+    res.cookie('userId', user.id,{
     signed: true,
     sameSite: 'None',
     secure: true
