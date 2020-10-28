@@ -47,8 +47,15 @@ module.exports.postResign = async (req,res)=>{
     phone:req.body.phone,
     email: email,
     password:password,
+      isLogin: 0
       
     })
+  user.save().then(doc => {
+    console.log(doc)
+  })
+  .catch(err => {
+    console.error(err)
+  })
 //   var b=db.get('user').find({email:email})
 // .push({isLogin: 1})
 // .write()
@@ -169,7 +176,7 @@ console.log(wrongTime)
 
 
   
-  
+  console.log(user.isLogin)
   
 res.redirect('/')
 

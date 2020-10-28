@@ -5,13 +5,9 @@ module.exports.createUser = (req, res, next) => {
 
   var errors = [];
  
-  if (req.body.name.length > 30) {
-     errors.push("maximun is 30 words");
-  }
-  
   
   if (!req.body.name) {
-    errors.push("Name is quired")``;
+    errors.push("Name is quired");
   }
   if (errors.length) {
     res.render("auth/resign", {
