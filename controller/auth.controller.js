@@ -158,9 +158,7 @@ console.log(wrongTime)
     secure: true
   }
             );
-  
-   console.log('trang auth controller' + req.signedCookies.userId)
-     console.log('uer' + user)
+
 
   
   
