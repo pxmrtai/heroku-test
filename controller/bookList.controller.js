@@ -11,7 +11,7 @@ module.exports.index = (req,res) => {
   
 }
 module.exports.listBook =async (req,res,next)=>{  
-    var user= await User.find({id:req.signedCookies.userId})
+    var user= await User.findById({_id:req.signedCookies.userId})
     console.log(req.signedCookies.userId)
       console.log(user)
 
