@@ -151,15 +151,15 @@ console.log(wrongTime)
   }
 
 
-  // Yes, it's a valid ObjectId, proceed with `findById` call.
-   res.cookie('userId', user._id,{
+
+   res.cookie('userId',user._id,{
     signed: true,
     sameSite: 'None',
     secure: true
   }
             );
 
-   
+   console.log( req.signedCookies.userId)
   
   
   
