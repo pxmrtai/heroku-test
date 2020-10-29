@@ -96,17 +96,18 @@ module.exports.postIndex = async(req,res)=>{
     }).save()
     res.redirect('/book')
 }
-module.exports.update = (req,res)=>{
-    db.get('list')
-    .find({ id:  req.body.id })
-    .assign({title: req.body.title})
-    .write()
+module.exports.update = async(req,res)=>{
+  var id=req.body.id
+  var book = await Book.findOneAndUpdate({_id:id},{title:req.body.title})
+  book.save()
+    // db.get('list')
+    // .find({ id:  req.body.id })
+    // .assign({title: req.body.title})
+    // .write()
     res.redirect('/book')
 }
-module.exports.cart = (req,res)=>{
-  var user= db.get('user')
-  .find({id: req.signedCookies.userId})
-  .value()
+module.exports.cart = async(req,res)=>{
+  var user= await User.findById(req.signedCookies.userId)
    var inCart =  db.get('sessions')
                  .find({id:req.signedCookies.sessionId})
                  .value()

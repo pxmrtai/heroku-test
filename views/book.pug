@@ -54,6 +54,7 @@ block navbar
           td
             img(src='/'+book.avatar,width='30px')
         td= book.title 
+        td= book._id
         td
           a.btn.btn-primary(data-toggle="collapse" href="#"+ book.id, role="button" aria-expanded="false" aria-controls="collapseExample") description
           div(class="collapse" id= book.id)
