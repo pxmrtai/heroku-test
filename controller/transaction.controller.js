@@ -5,7 +5,8 @@ const shortid = require('shortid')
 
 
 
-module.exports.rentalIndex = (req,res)=>{
+
+module.exports.rentalIndex = async(req,res)=>{
   var inCart =  db.get('sessions').find({id:req.signedCookies.sessionId}).value()
    var cart = inCart.cart
    console.log(cart)
