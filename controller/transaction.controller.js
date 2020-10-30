@@ -1,13 +1,15 @@
 
 const db = require('../db')
 const shortid = require('shortid')
+var Session = require('../models/session.model')
 
 
 
 
 
 module.exports.rentalIndex = async(req,res)=>{
-  var inCart =  db.get('sessions').find({id:req.signedCookies.sessionId}).value()
+  var inCart =  await Session.findById(req.signedCookies.sessionId)
+      // db.get('sessions').find({id:req.signedCookies.sessionId}).value()
    var cart = inCart.cart
    console.log(cart)
   
