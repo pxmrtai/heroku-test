@@ -72,7 +72,7 @@ module.exports.postCreateRentalList = async(req,res)=>{
 
 
 module.exports.getcomplete = async(req, res) => {
-  
+  await RentalList.findByIdAndUpdate({_id : req.params.id},{isComplete: true})
   // db.get('rentalList').find({id: req.params.id}).assign({isComplete: true}).write();
   res.redirect('/transaction/index');
 };
