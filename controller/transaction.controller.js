@@ -4,6 +4,7 @@ const shortid = require('shortid')
 var Session = require('../models/session.model')
 var User = require('../models/user.model')
 var Book = require('../models/book.model')
+var RentalList= require('../models/rentalList.model')
 
 
 
@@ -52,24 +53,26 @@ module.exports.createRentalList =async(req,res)=>{
 
 
   res.render("transaction/create",{
-     listBook : db.get("list").value(),
-     listUser : db.get("user").value(),
-     rentalList: db.get("rentalList").value()
+     listBook :await Book.find(),
+     listUser : await User.find(),
+     rentalList: await RentalList.find()
   })
   
 }
 
 
-module.exports.postCreateRentalList = (req,res)=>{
-    var user = db.get('user').value()
-    req.body.id = shortid.generate();
-    db.get('rentalList').push(req.body).write()
+module.exports.postCreateRentalList = async(req,res)=>{
+    var user = await User.find()
+    
+    var rentalList = await RentalList.create(req.body)
+    // db.get('rentalList').push(req.body).write()
     res.redirect('/transaction/index')
   
 }
 
 
-module.exports.getcomplete = (req, res) => {
-  db.get('rentalList').find({id: req.params.id}).assign({isComplete: true}).write();
+module.exports.getcomplete = async(req, res) => {
+  
+  // db.get('rentalList').find({id: req.params.id}).assign({isComplete: true}).write();
   res.redirect('/transaction/index');
 };
