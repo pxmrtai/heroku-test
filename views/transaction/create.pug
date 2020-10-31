@@ -6,7 +6,7 @@ block navbar
     each error in errors
         .alert.alert-danger= error
 
-  form(action="/transaction/create", method="POST")
+  form(action="/transaction/create", method="POST",enctype="multipart/form-data")
     .form-group.d-flex
       div
         label(for="email") Book Title
