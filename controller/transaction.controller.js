@@ -63,8 +63,18 @@ module.exports.createRentalList =async(req,res)=>{
 
 module.exports.postCreateRentalList = async(req,res)=>{
     var user = await User.find()
+    var book = await Book.findOne({bookId: req.body.BookId})
+    console.log(book)
     
-    var rentalList = await RentalList.create(req.body)
+    var rentalList = new RentalList(
+      {
+        bookId: req.body.bookId,
+        email: req.body.email,
+        isComplete: false,
+        avatar: book.avatar
+      }
+    )
+    rentalList.save()
     // db.get('rentalList').push(req.body).write()
     res.redirect('/transaction/index')
   
