@@ -16,12 +16,12 @@ module.exports.rentalIndex = async(req,res,next)=>{
   var page = parseInt(req.query.page) || 1;
   // console.log(page);
    var perPage = 3;
-  Session
+  RentalList
       .find() // find tất cả các data
       .skip((perPage * page) - perPage) // Trong page đầu tiên sẽ bỏ qua giá trị là 0
       .limit(perPage)
       .exec((err, rentalList) => {
-        Session.countDocuments((err, count) => { // đếm để tính có bao nhiêu trang
+        RentalList.countDocuments((err, count) => { // đếm để tính có bao nhiêu trang
           if (err) return next(err);
            res.render('transaction/index',{
                rentalList,
@@ -49,13 +49,13 @@ module.exports.rentalIndex = async(req,res,next)=>{
 module.exports.createRentalList =async(req,res)=>{
   var listBook = await Book.find()
   var listUser = await User.find()
-  var rentalList = await Book.find()
+
 
 
   res.render("transaction/create",{
-     listBook :await Book.find(),
-     listUser : await User.find(),
-     rentalList: await RentalList.find()
+     listBook :listBook,
+     listUser : listUser,
+
   })
   
 }
@@ -64,7 +64,7 @@ module.exports.createRentalList =async(req,res)=>{
 module.exports.postCreateRentalList = async(req,res)=>{
     var user = await User.find()
     var book = await Book.findOne({bookId: req.body.BookId})
-    console.log(book)
+
     
     var rentalList = new RentalList(
       {
@@ -74,7 +74,12 @@ module.exports.postCreateRentalList = async(req,res)=>{
         avatar: book.avatar
       }
     )
-    rentalList.save()
+      rentalList.save().then(doc => {
+    console.log(doc)
+  })
+  .catch(err => {
+    console.error(err)
+  })
     // db.get('rentalList').push(req.body).write()
     res.redirect('/transaction/index')
   
