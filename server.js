@@ -30,6 +30,9 @@ var transaction = require("./routes/transaction.route");
 var cartRoute = require('./routes/cart.route')
 var controller = require("./controller/bookList.controller");
 
+const apiLoginRoute = require("./api/routes/login.route.js");
+const apiTransactionRoute = require("./api/routes/transaction.route.js");
+
 
 var counting = require("./middleware/count.middleware");
 var authMiddleware = require("./middleware/auth.middleware");
@@ -60,6 +63,9 @@ app.use("/transaction", authMiddleware.requireAuth, transaction);
 app.use("/auth", authRoute);
 app.use('/cart', cartRoute)
 app.use(express.static("public"));
+
+app.use('/api',apiLoginRoute)
+app.use('/api',apiTransactionRoute)
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
