@@ -10,9 +10,13 @@ block navbar
          th ID rental
          tr
            each item in rentalList
-              tr
-                 td
-                   img(src= '/'+item.avatar,width='30px')
+              tr 
+                 if item.avatar
+                   td
+                     img(src= '/'+item.avatar,width='30px')
+                 else 
+                   td
+                     img(src='https://cdn.glitch.com/77a339e2-d309-4888-9ac3-0ba94f1022ea%2Fdepositphotos_166074422-stock-illustration-default-avatar-profile-icon-grey.jpg?v=1601794635784', width='30px')
                  td= item.email
                  td= item.bookId 
                  td= item.id
