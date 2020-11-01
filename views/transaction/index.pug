@@ -11,7 +11,8 @@ block navbar
          tr
            each item in rentalList
               tr
-                 td= item.avatar
+                 td
+                   img(src= '/'+item.avatar,width='30px')
                  td= item.email
                  td= item.bookId 
                  td= item.id
